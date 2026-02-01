@@ -70,9 +70,9 @@
 <body class="text-brand-charcoal bg-white min-h-screen flex flex-col selection:bg-brand-red selection:text-white">
 
     <!-- ================= NAVIGATION ================= -->
-    <header id="main-header" class="fixed w-full z-50 bg-white transition-all duration-300 shadow-md">
+    <header id="main-header" class="fixed w-full z-[100] bg-white transition-all duration-300 shadow-md">
         <!-- Primary Tier -->
-        <div class="relative bg-white">
+        <div class="relative bg-white z-[101]">
             <div class="container mx-auto px-4 md:px-8 h-20 flex justify-between items-center">
                 <!-- Logo -->
                 <div class="flex items-center gap-3 cursor-pointer" onclick="navigateTo('home')">
@@ -111,14 +111,14 @@
                 </nav>
 
                 <!-- Mobile Menu Button -->
-                <button onclick="toggleMenu()" class="md:hidden text-brand-charcoal focus:outline-none">
+                <button onclick="toggleMenu()" class="md:hidden text-brand-charcoal bg-white p-1 rounded focus:outline-none z-[102]">
                     <i data-lucide="menu" class="w-8 h-8"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-2xl h-screen top-full left-0 z-40 pb-24 overflow-y-auto">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-2xl h-[calc(100vh-80px)] top-20 left-0 z-[99] pb-24 overflow-y-auto">
             <div class="flex flex-col p-6 space-y-2">
                 <button onclick="navigateTo('home')" class="text-left text-xl font-bold uppercase text-brand-charcoal py-3 border-b border-gray-100">Home</button>
                 <button onclick="navigateTo('services')" class="text-left text-xl font-bold uppercase text-brand-charcoal py-3 border-b border-gray-100">Solutions</button>
