@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abelcon Builders Corporation</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #F4F4F4; }
+        ::-webkit-scrollbar-thumb { background: #A11B1F; border-radius: 0px; }
+        ::-webkit-scrollbar-thumb:hover { background: #232323; }
+
+        /* Typography Defaults */
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
+        body { font-family: 'Inter', sans-serif; }
+
+        /* Custom Clip Paths for "Chevron/Angled" aesthetic */
+        .clip-chevron-right {
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+        
+        /* For Mobile reset */
+        @media (max-width: 768px) {
+            .clip-chevron-right { clip-path: none; }
+        }
+
+        .clip-angle-decor {
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+        }
+
+        /* Animations */
+        .hover-trigger .hover-target { opacity: 0; transition: opacity 0.3s ease-in-out; }
+        .hover-trigger:hover .hover-target { opacity: 1; }
+        
+        /* Accordion Transition */
+        .accordion-content { transition: max-height 0.3s ease-out; max-height: 0; overflow: hidden; }
+        .accordion-content.active { max-height: 200px; }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#A11B1F', // Deep Crimson
+                            charcoal: '#232323', // Dark Slate
+                            gray: '#F4F4F4', // Soft Gray
+                        }
+                    },
+                    backgroundImage: {
+                        'pattern-lines': "repeating-linear-gradient(45deg, #232323 0, #232323 1px, transparent 0, transparent 50%)"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-brand-charcoal bg-white min-h-screen flex flex-col selection:bg-brand-red selection:text-white">
+
+    <!-- ================= NAVIGATION ================= -->
+    <header id="main-header" class="fixed w-full z-50 bg-white transition-all duration-300 shadow-md">
+        <!-- Primary Tier -->
+        <div class="relative bg-white">
+            <div class="container mx-auto px-4 md:px-8 h-20 flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="navigateTo('home')">
+                    <!-- Hexagon-ish Logo rep -->
+                    <div class="relative w-10 h-10 bg-brand-charcoal flex items-center justify-center clip-path-polygon">
+                        <i data-lucide="hexagon" class="text-brand-red fill-current w-10 h-10 absolute"></i>
+                        <span class="relative z-10 text-white font-black text-xl">A</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-black tracking-tighter leading-none text-brand-charcoal">ABELCON</span>
+                        <span class="text-[9px] font-bold tracking-[0.3em] uppercase text-brand-red">Builders Corp</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 items-center h-full">
+                    <button onclick="navigateTo('home')" class="nav-link relative h-full flex items-center text-sm font-bold uppercase tracking-wide hover:text-brand-red transition-colors group" data-page="home">
+                        Home
+                        <span class="absolute bottom-0 left-0 w-full h-1 bg-brand-red scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                    </button>
+                    <button onclick="navigateTo('services')" class="nav-link relative h-full flex items-center text-sm font-bold uppercase tracking-wide hover:text-brand-red transition-colors group" data-page="services">
+                        Solutions
+                        <span class="absolute bottom-0 left-0 w-full h-1 bg-brand-red scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                    </button>
+                    <button onclick="navigateTo('projects')" class="nav-link relative h-full flex items-center text-sm font-bold uppercase tracking-wide hover:text-brand-red transition-colors group" data-page="projects">
+                        Projects
+                        <span class="absolute bottom-0 left-0 w-full h-1 bg-brand-red scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                    </button>
+                    <button onclick="navigateTo('newsroom')" class="nav-link relative h-full flex items-center text-sm font-bold uppercase tracking-wide hover:text-brand-red transition-colors group" data-page="newsroom">
+                        Newsroom
+                        <span class="absolute bottom-0 left-0 w-full h-1 bg-brand-red scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                    </button>
+                    <button onclick="navigateTo('contact')" class="ml-4 bg-brand-charcoal hover:bg-brand-red text-white px-6 py-3 font-bold text-xs uppercase tracking-widest transition-all clip-angle-decor">
+                        Contact
+                    </button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMenu()" class="md:hidden text-brand-charcoal focus:outline-none">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-2xl h-screen top-full left-0 z-40 pb-24 overflow-y-auto">
+            <div class="flex flex-col p-6 space-y-2">
+                <button onclick="navigateTo('home')" class="text-left text-xl font-bold uppercase text-brand-charcoal py-3 border-b border-gray-100">Home</button>
+                <button onclick="navigateTo('services')" class="text-left text-xl font-bold uppercase text-brand-charcoal py-3 border-b border-gray-100">Solutions</button>
+                <button onclick="navigateTo('projects')" class="text-left text-xl font-bold uppercase text-brand-charcoal py-3 border-b border-gray-100">Projects</button>
+                <button onclick="navigateTo('newsroom')" class="text-left text-xl font-bold uppercase text-brand-charcoal py-3 border-b border-gray-100">Newsroom</button>
+                
+                <!-- Accordion Item -->
+                <div class="border-b border-gray-100">
+                    <button onclick="toggleAccordion('join-accordion')" class="w-full flex justify-between items-center text-left text-xl font-bold uppercase text-brand-charcoal py-3">
+                        <span>Join Us</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform" id="join-icon"></i>
+                    </button>
+                    <div id="join-accordion" class="accordion-content bg-brand-gray px-4">
+                        <a href="#" class="block py-3 text-sm font-bold text-slate-600 uppercase tracking-wide border-b border-gray-200">Civil Engineering</a>
+                        <a href="#" class="block py-3 text-sm font-bold text-slate-600 uppercase tracking-wide border-b border-gray-200">Commercial Construction</a>
+                        <a href="#" class="block py-3 text-sm font-bold text-slate-600 uppercase tracking-wide">Sustainability</a>
+                    </div>
+                </div>
+
+                <button onclick="navigateTo('contact')" class="bg-brand-red text-white text-center py-4 font-bold uppercase tracking-wider mt-8">Get a Quote</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow pt-[80px]"> <!-- Adjusted padding for single tier header -->
+
+        <!-- ================= HOME PAGE ================= -->
+        <div id="page-home" class="page-content block">
+            
+            <!-- HERO SPLIT SECTION -->
+            <section class="relative min-h-[calc(100vh-80px)] flex flex-col md:flex-row bg-white overflow-hidden">
+                <!-- Left: Typography -->
+                <div class="w-full md:w-1/2 flex items-center justify-center p-8 md:p-16 lg:p-24 relative z-10">
+                    <div class="max-w-xl">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="h-[2px] w-12 bg-brand-red"></div>
+                            <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Established 2021</span>
+                        </div>
+                        
+                        <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-brand-charcoal leading-[0.9] mb-8">
+                            <span class="text-brand-red">BUILDING</span><br>
+                            THE CITIES OF<br>
+                            TOMORROW.
+                        </h1>
+                        
+                        <p class="text-lg text-slate-600 mb-10 leading-relaxed font-light max-w-md">
+                            Precision engineering meets modern design. We construct the skyline with integrity, innovation, and an unyielding commitment to safety.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-4">
+                            <button onclick="navigateTo('projects')" class="group bg-brand-charcoal text-white px-8 py-4 font-bold text-sm uppercase tracking-widest hover:bg-brand-red transition-colors flex items-center gap-2">
+                                Our Portfolio <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Decorative Angled Lines -->
+                    <div class="absolute bottom-0 left-0 w-full h-32 opacity-5 pointer-events-none">
+                        <div class="w-px h-full bg-brand-charcoal absolute left-12 rotate-12"></div>
+                        <div class="w-px h-full bg-brand-charcoal absolute left-24 rotate-12"></div>
+                        <div class="w-px h-full bg-brand-charcoal absolute left-36 rotate-12"></div>
+                    </div>
+                </div>
+
+                <!-- Right: Image with Chevron Mask -->
+                <div class="w-full md:w-1/2 relative h-[50vh] md:h-auto">
+                    <div class="absolute inset-0 bg-gray-900 md:clip-chevron-right z-10 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+                             alt="Modern Skyscraper" 
+                             class="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-[2000ms]">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal/80 to-transparent mix-blend-multiply"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BENTO STYLE SERVICES INFO -->
+            <section class="py-20 bg-brand-gray">
+                <div class="container mx-auto px-4">
+                    <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                        <div>
+                            <div class="bg-brand-red text-white text-xs font-bold px-3 py-1 inline-block mb-4 uppercase tracking-widest">Our Expertise</div>
+                            <h2 class="text-4xl font-black text-brand-charcoal uppercase">Core Capabilities</h2>
+                        </div>
+                        <a href="#" onclick="navigateTo('services')" class="hidden md:flex items-center gap-2 font-bold uppercase tracking-wider text-sm border-b-2 border-brand-red pb-1 hover:text-brand-red transition-colors">
+                            View All Services <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <!-- Card 1 -->
+                        <div class="bg-white p-8 border-l-4 border-brand-red shadow-lg hover:-translate-y-2 transition-transform duration-300">
+                            <i data-lucide="building" class="w-10 h-10 text-brand-red mb-6"></i>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase mb-3">General Construction</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-6">Mid-rise commercial buildings and residential subdivisions built to national codes.</p>
+                            <div class="w-8 h-1 bg-brand-gray"></div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="bg-white p-8 border-l-4 border-brand-charcoal shadow-lg hover:-translate-y-2 transition-transform duration-300">
+                            <i data-lucide="droplets" class="w-10 h-10 text-brand-charcoal mb-6"></i>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase mb-3">Waterproofing</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-6">Specialized membrane applications for roof decks and basement tanking.</p>
+                            <div class="w-8 h-1 bg-brand-gray"></div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="bg-white p-8 border-l-4 border-brand-red shadow-lg hover:-translate-y-2 transition-transform duration-300">
+                            <i data-lucide="hard-hat" class="w-10 h-10 text-brand-red mb-6"></i>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase mb-3">Govt Infrastructure</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-6">PCAB-licensed Small B projects focusing on public works and facilities.</p>
+                            <div class="w-8 h-1 bg-brand-gray"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ABELCON GRID (MISSIONS) -->
+            <section class="py-0 bg-brand-charcoal">
+                <!-- Red Tag Header -->
+                <div class="bg-brand-red text-white w-full md:w-64 py-4 px-8 font-bold uppercase tracking-widest text-sm relative z-20">
+                    Our Missions
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 h-auto md:h-[600px]">
+                    <!-- Grid Item 1 -->
+                    <div class="group relative h-80 md:h-full bg-gray-800 border-r border-b border-white/10 hover-trigger overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Mission">
+                        <div class="absolute top-6 left-6 text-white z-10">
+                            <span class="text-4xl font-black text-white/20">01</span>
+                        </div>
+                        <div class="hover-target absolute inset-0 bg-brand-red/90 flex flex-col justify-center p-8 z-20">
+                            <h3 class="text-2xl font-black text-white uppercase mb-2">Sustainable Build</h3>
+                            <p class="text-white/90 text-sm leading-relaxed">Implementing green building technologies to reduce carbon footprint in urban developments.</p>
+                            <a href="#" class="mt-6 inline-flex items-center text-white font-bold uppercase text-xs tracking-widest border-b border-white pb-1">Learn More</a>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-10 pointer-events-none group-hover:opacity-0 transition-opacity">
+                            <h3 class="text-white font-bold uppercase text-xl">Sustainability</h3>
+                        </div>
+                    </div>
+
+                    <!-- Grid Item 2 -->
+                    <div class="group relative h-80 md:h-full bg-gray-800 border-r border-b border-white/10 hover-trigger overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Mission">
+                        <div class="absolute top-6 left-6 text-white z-10">
+                            <span class="text-4xl font-black text-white/20">02</span>
+                        </div>
+                        <div class="hover-target absolute inset-0 bg-brand-red/90 flex flex-col justify-center p-8 z-20">
+                            <h3 class="text-2xl font-black text-white uppercase mb-2">Safety First</h3>
+                            <p class="text-white/90 text-sm leading-relaxed">Zero-accident vision through rigorous training and international safety standard adherence.</p>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-10 pointer-events-none group-hover:opacity-0 transition-opacity">
+                            <h3 class="text-white font-bold uppercase text-xl">Safety</h3>
+                        </div>
+                    </div>
+
+                    <!-- Grid Item 3 -->
+                    <div class="group relative h-80 md:h-full bg-gray-800 border-r border-b border-white/10 hover-trigger overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Mission">
+                        <div class="absolute top-6 left-6 text-white z-10">
+                            <span class="text-4xl font-black text-white/20">03</span>
+                        </div>
+                        <div class="hover-target absolute inset-0 bg-brand-red/90 flex flex-col justify-center p-8 z-20">
+                            <h3 class="text-2xl font-black text-white uppercase mb-2">Innovation</h3>
+                            <p class="text-white/90 text-sm leading-relaxed">Adopting BIM and modern pre-cast methodologies to accelerate project timelines.</p>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-10 pointer-events-none group-hover:opacity-0 transition-opacity">
+                            <h3 class="text-white font-bold uppercase text-xl">Innovation</h3>
+                        </div>
+                    </div>
+
+                    <!-- Grid Item 4 -->
+                    <div class="group relative h-80 md:h-full bg-gray-800 border-b border-white/10 hover-trigger overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1590644365607-1c5a29d25033?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Mission">
+                        <div class="absolute top-6 left-6 text-white z-10">
+                            <span class="text-4xl font-black text-white/20">04</span>
+                        </div>
+                        <div class="hover-target absolute inset-0 bg-brand-red/90 flex flex-col justify-center p-8 z-20">
+                            <h3 class="text-2xl font-black text-white uppercase mb-2">Community</h3>
+                            <p class="text-white/90 text-sm leading-relaxed">Building infrastructure that fosters community growth and economic development.</p>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-10 pointer-events-none group-hover:opacity-0 transition-opacity">
+                            <h3 class="text-white font-bold uppercase text-xl">Community</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FULL WIDTH PARALLAX SECTION -->
+            <section class="py-32 bg-fixed bg-center bg-cover relative" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2070&auto=format&fit=crop');">
+                <div class="absolute inset-0 bg-brand-charcoal/80"></div>
+                <div class="container mx-auto px-4 relative z-10 text-center">
+                    <h2 class="text-5xl md:text-7xl font-black text-white uppercase mb-6 tracking-tight">Constructing <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Excellence</span></h2>
+                    <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-10">From blueprint to reality, we deliver projects that stand the test of time.</p>
+                    <button onclick="navigateTo('contact')" class="bg-brand-red hover:bg-white hover:text-brand-red text-white px-10 py-4 font-bold uppercase tracking-widest transition-all clip-angle-decor">Start Your Project</button>
+                </div>
+            </section>
+
+            <!-- NEWSROOM (BENTO STYLE) -->
+            <section class="py-24 bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="flex items-center gap-3 mb-10">
+                        <div class="h-4 w-4 bg-brand-red"></div>
+                        <h2 class="text-3xl font-black text-brand-charcoal uppercase">Newsroom</h2>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <!-- Featured Article (Span 2) -->
+                        <div onclick="navigateTo('article-skyline')" class="md:col-span-2 group cursor-pointer relative overflow-hidden bg-brand-charcoal h-[400px]">
+                            <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500" alt="News">
+                            <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black to-transparent">
+                                <span class="bg-brand-red text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider mb-3 inline-block">Featured</span>
+                                <h3 class="text-2xl md:text-3xl font-bold text-white leading-tight mb-2 group-hover:underline decoration-brand-red decoration-4">Abelcon Completes Quezon City Skyline Mixed-Use Tower Ahead of Schedule</h3>
+                                <p class="text-gray-300 text-sm mt-2 line-clamp-2">The flagship project features state-of-the-art earthquake resistance technology...</p>
+                            </div>
+                        </div>
+
+                        <!-- Side List (Span 1) -->
+                        <div class="flex flex-col gap-6">
+                            <div onclick="navigateTo('article-safety')" class="bg-brand-gray p-6 flex-1 flex flex-col justify-center border-l-2 border-transparent hover:border-brand-red transition-colors group cursor-pointer">
+                                <span class="text-xs font-bold text-slate-400 mb-2 block">Oct 24, 2025</span>
+                                <h4 class="font-bold text-brand-charcoal uppercase text-sm leading-snug group-hover:text-brand-red transition-colors">Awarded Top Safety Contractor by DOLE</h4>
+                            </div>
+                            <div onclick="navigateTo('article-logistics')" class="bg-brand-gray p-6 flex-1 flex flex-col justify-center border-l-2 border-transparent hover:border-brand-red transition-colors group cursor-pointer">
+                                <span class="text-xs font-bold text-slate-400 mb-2 block">Sep 15, 2025</span>
+                                <h4 class="font-bold text-brand-charcoal uppercase text-sm leading-snug group-hover:text-brand-red transition-colors">New Logistics Hub broke ground in Bulacan</h4>
+                            </div>
+                            <div onclick="navigateTo('article-license')" class="bg-brand-gray p-6 flex-1 flex flex-col justify-center border-l-2 border-transparent hover:border-brand-red transition-colors group cursor-pointer">
+                                <span class="text-xs font-bold text-slate-400 mb-2 block">Aug 01, 2025</span>
+                                <h4 class="font-bold text-brand-charcoal uppercase text-sm leading-snug group-hover:text-brand-red transition-colors">PCAB License Upgraded to Category B</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= SERVICES PAGE (COMPLETE) ================= -->
+        <div id="page-services" class="page-content hidden">
+             <div class="bg-brand-gray py-24">
+                <div class="container mx-auto px-4 text-center">
+                    <h1 class="text-5xl font-black text-brand-charcoal uppercase mb-6">Our Solutions</h1>
+                    <p class="max-w-2xl mx-auto text-slate-600">Comprehensive construction services tailored to the Philippine landscape.</p>
+                </div>
+            </div>
+            
+             <div class="container mx-auto px-4 py-16">
+                 <!-- Service 1: General Building -->
+                 <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
+                     <div class="order-2 md:order-1">
+                         <h3 class="text-2xl font-black text-brand-red uppercase mb-4">General Building</h3>
+                         <p class="text-slate-600 leading-relaxed mb-6">We provide end-to-end construction services. From structural analysis to architectural finishing, our team ensures every phase meets strict quality control.</p>
+                         <ul class="space-y-3">
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="check" class="text-brand-red w-5 h-5"></i> Residential & Commercial</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="check" class="text-brand-red w-5 h-5"></i> Structural Retrofitting</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="check" class="text-brand-red w-5 h-5"></i> Interior Fit-outs</li>
+                         </ul>
+                     </div>
+                     <div class="h-80 bg-slate-200 clip-angle-decor relative order-1 md:order-2">
+                         <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Construction">
+                     </div>
+                 </div>
+
+                 <!-- Service 2: Waterproofing -->
+                 <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
+                     <div class="h-80 bg-slate-200 clip-angle-decor relative">
+                         <img src="https://images.unsplash.com/photo-1621293954908-907159247fc8?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Waterproofing">
+                     </div>
+                     <div>
+                         <h3 class="text-2xl font-black text-brand-red uppercase mb-4">Specialized Waterproofing</h3>
+                         <p class="text-slate-600 leading-relaxed mb-6">Water damage is a major concern in tropical climates. Our specialized division utilizes elastomeric and cementitious systems to ensure your structure remains impenetrable.</p>
+                         <ul class="space-y-3">
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="droplets" class="text-brand-red w-5 h-5"></i> Roof Deck Membrane Application</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="droplets" class="text-brand-red w-5 h-5"></i> Basement Tanking</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="droplets" class="text-brand-red w-5 h-5"></i> Toilet & Bath Sealing</li>
+                         </ul>
+                     </div>
+                 </div>
+
+                 <!-- Service 3: Painting Works -->
+                 <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
+                     <div class="order-2 md:order-1">
+                         <h3 class="text-2xl font-black text-brand-red uppercase mb-4">Painting Works</h3>
+                         <p class="text-slate-600 leading-relaxed mb-6">Professional interior and exterior painting services for buildings and industrial plants. We use premium coatings that resist fading, cracking, and peeling.</p>
+                         <ul class="space-y-3">
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="paint-bucket" class="text-brand-red w-5 h-5"></i> Exterior Weather-Resistant Coating</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="paint-bucket" class="text-brand-red w-5 h-5"></i> Industrial Floor Epoxy</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="paint-bucket" class="text-brand-red w-5 h-5"></i> Textured Finishes</li>
+                         </ul>
+                     </div>
+                     <div class="h-80 bg-slate-200 clip-angle-decor relative order-1 md:order-2">
+                         <img src="https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Painting">
+                     </div>
+                 </div>
+
+                 <!-- Service 4: Government Infrastructure -->
+                 <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
+                     <div class="h-80 bg-slate-200 clip-angle-decor relative">
+                         <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Government Project">
+                     </div>
+                     <div>
+                         <h3 class="text-2xl font-black text-brand-red uppercase mb-4">Government Infrastructure</h3>
+                         <p class="text-slate-600 leading-relaxed mb-6">Registered for Small B government projects, we contribute to nation-building through the construction of public facilities, parks, and utility infrastructures.</p>
+                         <ul class="space-y-3">
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="landmark" class="text-brand-red w-5 h-5"></i> Public Parks & Plazas</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="landmark" class="text-brand-red w-5 h-5"></i> Multi-Purpose Halls</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="landmark" class="text-brand-red w-5 h-5"></i> Drainage & Water Systems</li>
+                         </ul>
+                     </div>
+                 </div>
+
+                 <!-- Service 5: Renovation -->
+                 <div class="grid md:grid-cols-2 gap-12 items-center">
+                     <div class="order-2 md:order-1">
+                         <h3 class="text-2xl font-black text-brand-red uppercase mb-4">Renovation & Fit-out</h3>
+                         <p class="text-slate-600 leading-relaxed mb-6">We breathe new life into existing structures. Whether it's a modern office fit-out or a complete structural overhaul, we manage the complexity of renovation with minimal disruption.</p>
+                         <ul class="space-y-3">
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="hammer" class="text-brand-red w-5 h-5"></i> Structural Repairs</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="hammer" class="text-brand-red w-5 h-5"></i> Office & Retail Fit-outs</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="hammer" class="text-brand-red w-5 h-5"></i> Building Extensions</li>
+                         </ul>
+                     </div>
+                     <div class="h-80 bg-slate-200 clip-angle-decor relative order-1 md:order-2">
+                         <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Renovation">
+                     </div>
+                 </div>
+
+             </div>
+        </div>
+
+        <!-- ================= PROJECTS PAGE (COMPLETE) ================= -->
+        <div id="page-projects" class="page-content hidden">
+            <div class="bg-brand-charcoal text-white py-24 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-1/2 h-full bg-white/5 clip-chevron-right"></div>
+                <div class="container mx-auto px-4 relative z-10">
+                    <h1 class="text-5xl md:text-6xl font-black uppercase mb-4">Our Portfolio</h1>
+                    <p class="text-gray-400 max-w-xl text-lg">Delivering structural integrity across Residential, Commercial, and Industrial sectors.</p>
+                </div>
+            </div>
+
+            <div class="container mx-auto px-4 py-16">
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap gap-4 mb-12">
+                    <button onclick="filterProjects('all')" class="filter-btn px-6 py-2 bg-brand-red text-white font-bold uppercase text-xs tracking-widest clip-angle-decor active" data-filter="all">All Projects</button>
+                    <button onclick="filterProjects('residential')" class="filter-btn px-6 py-2 bg-brand-gray text-brand-charcoal hover:bg-brand-charcoal hover:text-white font-bold uppercase text-xs tracking-widest transition-colors clip-angle-decor" data-filter="residential">Residential</button>
+                    <button onclick="filterProjects('commercial')" class="filter-btn px-6 py-2 bg-brand-gray text-brand-charcoal hover:bg-brand-charcoal hover:text-white font-bold uppercase text-xs tracking-widest transition-colors clip-angle-decor" data-filter="commercial">Commercial</button>
+                    <button onclick="filterProjects('industrial')" class="filter-btn px-6 py-2 bg-brand-gray text-brand-charcoal hover:bg-brand-charcoal hover:text-white font-bold uppercase text-xs tracking-widest transition-colors clip-angle-decor" data-filter="industrial">Industrial</button>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Item -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="residential">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Project">
+                            <div class="absolute inset-0 bg-brand-red/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <span class="text-white font-bold uppercase border-b-2 border-white pb-1 tracking-widest">View Details</span>
+                            </div>
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Residential</span>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase">Greenheights Villa</h3>
+                            <p class="text-slate-500 text-sm mt-2">Paranaque City • Completed 2024</p>
+                        </div>
+                    </div>
+
+                    <!-- Project Item -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="commercial">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1555636222-cae831e670b3?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Project">
+                             <div class="absolute inset-0 bg-brand-red/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <span class="text-white font-bold uppercase border-b-2 border-white pb-1 tracking-widest">View Details</span>
+                            </div>
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Commercial</span>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase">Skyline Mixed-Use</h3>
+                            <p class="text-slate-500 text-sm mt-2">Quezon City • Completed 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- Project Item -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="industrial">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Project">
+                             <div class="absolute inset-0 bg-brand-red/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <span class="text-white font-bold uppercase border-b-2 border-white pb-1 tracking-widest">View Details</span>
+                            </div>
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Industrial</span>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase">Logistics Warehouse 4</h3>
+                            <p class="text-slate-500 text-sm mt-2">Bulacan • Completed 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ================= NEWSROOM PAGE ================= -->
+        <div id="page-newsroom" class="page-content hidden">
+            <div class="bg-brand-charcoal text-white py-24 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-1/2 h-full bg-white/5 clip-chevron-right"></div>
+                <div class="container mx-auto px-4 relative z-10">
+                    <h1 class="text-5xl md:text-6xl font-black uppercase mb-4">Newsroom</h1>
+                    <p class="text-gray-400 max-w-xl text-lg">Latest updates, press releases, and industry insights from Abelcon.</p>
+                </div>
+            </div>
+
+            <div class="container mx-auto px-4 py-16">
+                <!-- Featured Article (Same as home page but expanded) -->
+                <div class="mb-16">
+                     <h3 class="text-xs font-bold text-brand-red uppercase tracking-widest mb-6">Featured Story</h3>
+                     <div class="grid md:grid-cols-2 gap-8 bg-white shadow-lg border-t-4 border-brand-red">
+                        <div class="h-80 md:h-auto overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Skyline Tower">
+                        </div>
+                        <div class="p-8 md:p-12 flex flex-col justify-center">
+                            <span class="text-slate-400 text-xs font-bold uppercase mb-2">Press Release • Nov 10, 2025</span>
+                            <h2 class="text-3xl font-black text-brand-charcoal uppercase mb-4 leading-tight">Abelcon Completes Quezon City Skyline Mixed-Use Tower Ahead of Schedule</h2>
+                            <p class="text-slate-600 mb-6 leading-relaxed">The flagship project features state-of-the-art earthquake resistance technology and sustainable energy systems, setting a new benchmark for mixed-use developments in Metro Manila.</p>
+                            <button onclick="navigateTo('article-skyline')" class="inline-flex items-center text-brand-red font-bold uppercase text-xs tracking-widest border-b border-brand-red pb-1 hover:text-brand-charcoal hover:border-brand-charcoal transition-colors">Read Full Story</button>
+                        </div>
+                     </div>
+                </div>
+
+                <!-- Recent Updates Grid -->
+                <h3 class="text-xs font-bold text-brand-charcoal uppercase tracking-widest mb-6">Recent Updates</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Article 1 -->
+                    <div onclick="navigateTo('article-safety')" class="group cursor-pointer">
+                        <div class="h-48 bg-slate-200 mb-4 overflow-hidden relative">
+                             <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Safety Award">
+                             <div class="absolute top-0 left-0 bg-brand-red text-white text-[10px] font-bold px-3 py-1 uppercase">Award</div>
+                        </div>
+                        <span class="text-xs font-bold text-slate-400 block mb-2">Oct 24, 2025</span>
+                        <h4 class="text-lg font-bold text-brand-charcoal uppercase leading-tight group-hover:text-brand-red transition-colors">Awarded Top Safety Contractor by DOLE</h4>
+                    </div>
+
+                    <!-- Article 2 -->
+                    <div onclick="navigateTo('article-logistics')" class="group cursor-pointer">
+                        <div class="h-48 bg-slate-200 mb-4 overflow-hidden relative">
+                             <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Logistics Hub">
+                             <div class="absolute top-0 left-0 bg-brand-charcoal text-white text-[10px] font-bold px-3 py-1 uppercase">Project Update</div>
+                        </div>
+                        <span class="text-xs font-bold text-slate-400 block mb-2">Sep 15, 2025</span>
+                        <h4 class="text-lg font-bold text-brand-charcoal uppercase leading-tight group-hover:text-brand-red transition-colors">New Logistics Hub broke ground in Bulacan</h4>
+                    </div>
+
+                    <!-- Article 3 -->
+                    <div onclick="navigateTo('article-license')" class="group cursor-pointer">
+                        <div class="h-48 bg-slate-200 mb-4 overflow-hidden relative">
+                             <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="License">
+                             <div class="absolute top-0 left-0 bg-brand-charcoal text-white text-[10px] font-bold px-3 py-1 uppercase">Company News</div>
+                        </div>
+                        <span class="text-xs font-bold text-slate-400 block mb-2">Aug 01, 2025</span>
+                        <h4 class="text-lg font-bold text-brand-charcoal uppercase leading-tight group-hover:text-brand-red transition-colors">PCAB License Upgraded to Category B</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= FULL ARTICLE PAGE (Skyline Tower) ================= -->
+        <div id="page-article-skyline" class="page-content hidden">
+            <!-- Hero Image -->
+            <div class="h-[50vh] relative">
+                <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover" alt="Skyline Tower">
+                <div class="absolute inset-0 bg-brand-charcoal/50"></div>
+                <div class="absolute bottom-0 left-0 w-full p-8 md:p-16 text-white container mx-auto">
+                    <span class="bg-brand-red text-white text-[10px] font-bold px-3 py-1 uppercase tracking-wider mb-4 inline-block">Press Release</span>
+                    <h1 class="text-3xl md:text-5xl font-black uppercase leading-tight mb-2">Abelcon Completes Quezon City Skyline Mixed-Use Tower Ahead of Schedule</h1>
+                    <p class="text-sm font-bold opacity-80 uppercase tracking-widest">November 10, 2025 • Quezon City</p>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="container mx-auto px-4 py-16 max-w-4xl">
+                <button onclick="navigateTo('newsroom')" class="mb-8 flex items-center text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-brand-red transition-colors">
+                    <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back to Newsroom
+                </button>
+
+                <div class="prose prose-lg text-slate-600">
+                    <p class="lead text-xl font-bold text-brand-charcoal mb-6">Abelcon Builders Corporation is proud to announce the successful turnover of the Skyline Mixed-Use Tower, a 35-story development located in the heart of Diliman, Quezon City.</p>
+                    
+                    <p class="mb-6">The project, valued at ₱450 Million, was completed two weeks ahead of the projected timeline, showcasing Abelcon's commitment to efficiency and project management excellence.</p>
+
+                    <h3 class="text-2xl font-bold text-brand-charcoal uppercase mb-4 mt-10">Engineering Excellence</h3>
+                    <p class="mb-6">The Skyline Tower presented unique challenges due to its location in a high-density area. To mitigate traffic impact and accelerate construction, Abelcon utilized advanced pre-cast concrete methodologies for the building's facade and structural walls. This approach reduced on-site pouring time by 30%.</p>
+                    
+                    <p class="mb-6">"Our team worked in synchronized 24/7 shifts to ensure continuous progress," said Engr. Juan Dela Cruz, Project Manager. "The use of BIM (Building Information Modeling) allowed us to foresee structural clashes before they happened, saving us weeks of potential rework."</p>
+
+                    <h3 class="text-2xl font-bold text-brand-charcoal uppercase mb-4 mt-10">Sustainable Features</h3>
+                    <p class="mb-6">Aligning with Abelcon's mission for sustainability, the tower includes:</p>
+                    <ul class="list-disc pl-6 mb-6 space-y-2">
+                        <li><strong>Rainwater Harvesting System:</strong> Collects water for landscape irrigation and maintenance.</li>
+                        <li><strong>Solar-Ready Roof Deck:</strong> Pre-installed infrastructure for future solar panel integration.</li>
+                        <li><strong>Low-E Glass Facade:</strong> Reduces heat gain, lowering energy consumption for air conditioning.</li>
+                    </ul>
+
+                    <div class="bg-brand-gray p-8 border-l-4 border-brand-red my-10">
+                        <p class="italic text-brand-charcoal font-medium">"This project sets a new benchmark for mixed-use developments in Metro Manila. It stands as a testament to what Filipino engineering can achieve."</p>
+                        <p class="text-xs font-bold uppercase text-brand-red mt-4">— CEO, Abelcon Builders Corp.</p>
+                    </div>
+                    
+                    <p>The Skyline Mixed-Use Tower is now open for commercial leasing and residential occupancy.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= ARTICLE: SAFETY AWARD ================= -->
+        <div id="page-article-safety" class="page-content hidden">
+            <!-- Hero Image -->
+            <div class="h-[50vh] relative">
+                <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover" alt="Safety Award">
+                <div class="absolute inset-0 bg-brand-charcoal/50"></div>
+                <div class="absolute bottom-0 left-0 w-full p-8 md:p-16 text-white container mx-auto">
+                    <span class="bg-brand-red text-white text-[10px] font-bold px-3 py-1 uppercase tracking-wider mb-4 inline-block">Award</span>
+                    <h1 class="text-3xl md:text-5xl font-black uppercase leading-tight mb-2">Abelcon Awarded Top Safety Contractor by DOLE</h1>
+                    <p class="text-sm font-bold opacity-80 uppercase tracking-widest">October 24, 2025 • Manila</p>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="container mx-auto px-4 py-16 max-w-4xl">
+                <button onclick="navigateTo('newsroom')" class="mb-8 flex items-center text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-brand-red transition-colors">
+                    <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back to Newsroom
+                </button>
+
+                <div class="prose prose-lg text-slate-600">
+                    <p class="lead text-xl font-bold text-brand-charcoal mb-6">We are honored to receive the prestigious "Safe Work Award" from the Department of Labor and Employment (DOLE) for our outstanding safety performance in 2025.</p>
+                    
+                    <p class="mb-6">This recognition underscores Abelcon's unyielding commitment to the well-being of our workforce. Across 15 active project sites in Metro Manila and Central Luzon, Abelcon achieved a milestone of <strong>2 Million Safe Man-Hours</strong> without a lost-time injury (LTI).</p>
+
+                    <h3 class="text-2xl font-bold text-brand-charcoal uppercase mb-4 mt-10">Zero Accident Vision</h3>
+                    <p class="mb-6">Our Safety Department has implemented a rigorous "Zero Accident" program that includes:</p>
+                    <ul class="list-disc pl-6 mb-6 space-y-2">
+                        <li>Daily "Toolbox Meetings" to identify site-specific hazards.</li>
+                        <li>Mandatory safety induction for all subcontractors and visitors.</li>
+                        <li>Strict PPE compliance and regular equipment audits.</li>
+                    </ul>
+                    
+                    <p class="mb-6">"Safety is not just a policy; it's our culture," stated Engr. Maria Santos, Head of Safety. "Every worker deserves to go home to their family safe and sound. This award belongs to every carpenter, mason, and engineer who looks out for one another."</p>
+
+                    <p>We dedicate this award to our hardworking teams on the ground. Abelcon will continue to set the standard for occupational safety in the construction industry.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= ARTICLE: LOGISTICS HUB ================= -->
+        <div id="page-article-logistics" class="page-content hidden">
+            <!-- Hero Image -->
+            <div class="h-[50vh] relative">
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover" alt="Logistics Hub">
+                <div class="absolute inset-0 bg-brand-charcoal/50"></div>
+                <div class="absolute bottom-0 left-0 w-full p-8 md:p-16 text-white container mx-auto">
+                    <span class="bg-brand-red text-white text-[10px] font-bold px-3 py-1 uppercase tracking-wider mb-4 inline-block">Project Update</span>
+                    <h1 class="text-3xl md:text-5xl font-black uppercase leading-tight mb-2">New Logistics Hub Breaks Ground in Bulacan</h1>
+                    <p class="text-sm font-bold opacity-80 uppercase tracking-widest">September 15, 2025 • Bulacan</p>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="container mx-auto px-4 py-16 max-w-4xl">
+                <button onclick="navigateTo('newsroom')" class="mb-8 flex items-center text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-brand-red transition-colors">
+                    <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back to Newsroom
+                </button>
+
+                <div class="prose prose-lg text-slate-600">
+                    <p class="lead text-xl font-bold text-brand-charcoal mb-6">Abelcon Builders Corporation has officially broken ground on the new "North Point Logistics Center" in Plaridel, Bulacan, marking our expansion into large-scale industrial infrastructure.</p>
+                    
+                    <p class="mb-6">The 5-hectare development aims to support the booming e-commerce sector in the Philippines. Once completed, the facility will feature 30,000 square meters of warehouse space, cold storage capabilities, and an automated sorting center.</p>
+
+                    <h3 class="text-2xl font-bold text-brand-charcoal uppercase mb-4 mt-10">Strategic Location</h3>
+                    <p class="mb-6">Situated near the Plaridel Bypass Road, the hub offers strategic access to both Metro Manila and Northern Luzon. This project is expected to generate over 500 jobs during the construction phase alone.</p>
+                    
+                    <p class="mb-6">"Industrial construction requires speed and precision," explained Engr. Pedro Reyes. "We are utilizing pre-engineered steel structures (PEB) to expedite the structural frame erection. We aim to have the first phase operational by Q2 2026."</p>
+
+                    <div class="bg-brand-gray p-8 border-l-4 border-brand-red my-10">
+                        <p class="italic text-brand-charcoal font-medium">"This project signifies Abelcon's readiness to tackle complex industrial requirements. We are building the backbone of the country's supply chain."</p>
+                    </div>
+
+                    <p>Updates on the construction progress will be posted monthly on our website.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= ARTICLE: PCAB LICENSE ================= -->
+        <div id="page-article-license" class="page-content hidden">
+            <!-- Hero Image -->
+            <div class="h-[50vh] relative">
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover" alt="License">
+                <div class="absolute inset-0 bg-brand-charcoal/50"></div>
+                <div class="absolute bottom-0 left-0 w-full p-8 md:p-16 text-white container mx-auto">
+                    <span class="bg-brand-red text-white text-[10px] font-bold px-3 py-1 uppercase tracking-wider mb-4 inline-block">Company News</span>
+                    <h1 class="text-3xl md:text-5xl font-black uppercase leading-tight mb-2">PCAB License Upgraded to Category B</h1>
+                    <p class="text-sm font-bold opacity-80 uppercase tracking-widest">August 01, 2025 • Corporate</p>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="container mx-auto px-4 py-16 max-w-4xl">
+                <button onclick="navigateTo('newsroom')" class="mb-8 flex items-center text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-brand-red transition-colors">
+                    <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back to Newsroom
+                </button>
+
+                <div class="prose prose-lg text-slate-600">
+                    <p class="lead text-xl font-bold text-brand-charcoal mb-6">Abelcon Builders Corporation is pleased to announce that the Philippine Contractors Accreditation Board (PCAB) has upgraded our license to **Category B** for General Building.</p>
+                    
+                    <p class="mb-6">This significant milestone reflects our company's financial stability, technical competence, and track record of successful project delivery. The upgrade allows Abelcon to undertake larger contracts and participate in more complex government and private bidding processes.</p>
+
+                    <h3 class="text-2xl font-bold text-brand-charcoal uppercase mb-4 mt-10">What This Means for Clients</h3>
+                    <p class="mb-6">With a Category B license, Abelcon now has increased Allowable Ranges for Contract Costs (ARCC). This enables us to:</p>
+                    <ul class="list-disc pl-6 mb-6 space-y-2">
+                        <li>Bid for multi-story building projects with higher valuations.</li>
+                        <li>Take on larger-scale government infrastructure contracts.</li>
+                        <li>Partner with international firms for joint venture projects.</li>
+                    </ul>
+                    
+                    <p class="mb-6">"This upgrade is a testament to our team's hard work over the past four years," said the CEO. "We started as a small specialty contractor, and today we stand ready to build the nation's most critical structures."</p>
+
+                    <p>We thank our clients, partners, and employees for their continued trust and support as we reach new heights.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= CONTACT PAGE ================= -->
+        <div id="page-contact" class="page-content hidden">
+            <div class="flex flex-col md:flex-row h-[calc(100vh-124px)]">
+                <!-- Info Side -->
+                <div class="w-full md:w-1/3 bg-brand-charcoal text-white p-12 flex flex-col justify-center relative overflow-hidden">
+                    <div class="relative z-10">
+                        <div class="bg-brand-red w-12 h-1 mb-8"></div>
+                        <h1 class="text-4xl font-black uppercase mb-8">Get In Touch</h1>
+                        <p class="text-gray-400 mb-8 leading-relaxed">Ready to start your project? Contact our engineering team for a detailed consultation.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="map-pin" class="text-brand-red mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold uppercase text-sm">Head Office</h4>
+                                    <p class="text-sm text-gray-400">76 Rockville Ave. Novaliches, QC</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="phone" class="text-brand-red mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold uppercase text-sm">Phone</h4>
+                                    <p class="text-sm text-gray-400">0908 811 1168</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="mail" class="text-brand-red mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold uppercase text-sm">Email</h4>
+                                    <p class="text-sm text-gray-400">abelconbuilders@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Background Pattern -->
+                    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#A11B1F_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                </div>
+
+                <!-- Form Side -->
+                <div class="w-full md:w-2/3 bg-brand-gray p-12 flex items-center justify-center">
+                    <form onsubmit="event.preventDefault(); alert('Inquiry Sent!')" class="w-full max-w-lg bg-white p-8 shadow-xl border-t-4 border-brand-red">
+                        <h3 class="text-2xl font-black text-brand-charcoal uppercase mb-6">Send Inquiry</h3>
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Name</label>
+                                <input type="text" class="w-full bg-brand-gray border-none p-3 focus:ring-2 focus:ring-brand-red transition-all" placeholder="Juan Dela Cruz">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Contact No.</label>
+                                <input type="text" class="w-full bg-brand-gray border-none p-3 focus:ring-2 focus:ring-brand-red transition-all" placeholder="09XX...">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Project Type</label>
+                            <select class="w-full bg-brand-gray border-none p-3 focus:ring-2 focus:ring-brand-red transition-all">
+                                <option>General Construction</option>
+                                <option>Waterproofing</option>
+                                <option>Renovation</option>
+                            </select>
+                        </div>
+                        <div class="mb-8">
+                            <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Message</label>
+                            <textarea rows="4" class="w-full bg-brand-gray border-none p-3 focus:ring-2 focus:ring-brand-red transition-all"></textarea>
+                        </div>
+                        <button class="w-full bg-brand-red text-white font-bold uppercase tracking-widest py-4 hover:bg-brand-charcoal transition-colors">Submit Form</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-charcoal text-white pt-20 pb-10 border-t-4 border-brand-red">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 border-2 border-white flex items-center justify-center">
+                            <span class="font-black text-xl">A</span>
+                        </div>
+                        <span class="text-2xl font-black tracking-tight">ABELCON</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm">
+                        Building the future with precision and integrity. PCAB License No. 52135.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-6 text-brand-red">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li><a href="#" onclick="navigateTo('projects')" class="hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="#" onclick="navigateTo('services')" class="hover:text-white transition-colors">Solutions</a></li>
+                        <li><a href="#" onclick="navigateTo('newsroom')" class="hover:text-white transition-colors">Newsroom</a></li>
+                        <li><a href="#" onclick="navigateTo('contact')" class="hover:text-white transition-colors">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-6 text-brand-red">Contact</h4>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li>abelconbuilders@gmail.com</li>
+                        <li>+63 908 811 1168</li>
+                        <li>Quezon City, Philippines</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 uppercase tracking-wider">
+                <p>&copy; <span id="year"></span> Abelcon Builders Corp.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white">Privacy</a>
+                    <a href="#" class="hover:text-white">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Navigation Logic
+        function navigateTo(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('block');
+            });
+
+            // Show target
+            const target = document.getElementById('page-' + pageId);
+            if (target) {
+                target.classList.remove('hidden');
+                target.classList.add('block');
+                window.scrollTo(0, 0);
+            }
+
+            // Mobile Menu Close
+            document.getElementById('mobile-menu').classList.add('hidden');
+
+            // Nav State (Desktop)
+            document.querySelectorAll('.nav-link').forEach(el => {
+                const underline = el.querySelector('span');
+                if(el.dataset.page === pageId) {
+                    el.classList.add('text-brand-red');
+                    if(underline) underline.classList.remove('scale-x-0');
+                    if(underline) underline.classList.add('scale-x-100');
+                } else {
+                    el.classList.remove('text-brand-red');
+                    if(underline) underline.classList.add('scale-x-0');
+                    if(underline) underline.classList.remove('scale-x-100');
+                }
+            });
+        }
+        
+        // Filter Projects
+        function filterProjects(category) {
+            // Filter Items
+            const items = document.querySelectorAll('.project-item');
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+
+            // Update Button Styles
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                if (btn.dataset.filter === category) {
+                    btn.classList.remove('bg-brand-gray', 'text-brand-charcoal');
+                    btn.classList.add('bg-brand-red', 'text-white');
+                } else {
+                    btn.classList.add('bg-brand-gray', 'text-brand-charcoal');
+                    btn.classList.remove('bg-brand-red', 'text-white');
+                }
+            });
+        }
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Accordion Logic
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById('join-icon');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('active');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>
