@@ -80,10 +80,9 @@
             <div class="container mx-auto px-4 md:px-8 h-16 md:h-20 flex justify-between items-center">
                 <!-- Logo -->
                 <div class="flex items-center cursor-pointer" onclick="navigateTo('home')">
-                    <!-- Logo Updated: 50% Larger -->
-                    <img src="Abelcon_landscape.jpg" 
+                    <img src="https://placehold.co/400x120/ffffff/A11B1F?text=ABELCON+BUILDERS" 
                          alt="Abelcon Builders Corporation" 
-                         class="h-14 md:h-[4.5rem] w-auto object-contain">
+                         class="h-10 md:h-12 w-auto object-contain">
                 </div>
 
                 <!-- Desktop Menu -->
@@ -104,15 +103,26 @@
                         Projects
                         <span class="absolute bottom-0 left-0 w-full h-1 bg-brand-red scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                     </button>
-                    <button onclick="navigateTo('services')" class="nav-link relative h-full flex items-center text-sm font-bold uppercase tracking-wide hover:text-brand-red transition-colors group" data-page="services">
-                        Solutions
-                        <span class="absolute bottom-0 left-0 w-full h-1 bg-brand-red scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-                    </button>
+                    
+                    <!-- Solutions with Dropdown -->
+                    <div class="relative h-full flex items-center group/dropdown">
+                        <button onclick="navigateTo('services')" class="nav-link relative h-full flex items-center text-sm font-bold uppercase tracking-wide hover:text-brand-red transition-colors" data-page="services">
+                            Solutions
+                            <span class="absolute bottom-0 left-0 w-full h-1 bg-brand-red scale-x-0 group-hover/dropdown:scale-x-100 transition-transform origin-left"></span>
+                        </button>
+                        <!-- Dropdown Menu -->
+                        <div class="absolute top-full left-0 w-64 bg-white shadow-xl border-t-4 border-brand-red hidden group-hover/dropdown:block z-[150]">
+                            <button onclick="navigateTo('abelcrete')" class="block w-full text-left px-6 py-4 text-xs font-bold uppercase tracking-widest text-brand-charcoal hover:bg-brand-gray hover:text-brand-red transition-colors">
+                                Abelcrete® Wall System
+                            </button>
+                        </div>
+                    </div>
+
                     <button onclick="navigateTo('newsroom')" class="nav-link relative h-full flex items-center text-sm font-bold uppercase tracking-wide hover:text-brand-red transition-colors group" data-page="newsroom">
                         Newsroom
                         <span class="absolute bottom-0 left-0 w-full h-1 bg-brand-red scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                     </button>
-                    <a href="https://abelconbuilders.com/webmail" class="nav-link relative h-full flex items-center text-sm font-bold uppercase tracking-wide hover:text-brand-red transition-colors group">
+                    <a href="#" onclick="alert('Redirecting to Webmail...')" class="nav-link relative h-full flex items-center text-sm font-bold uppercase tracking-wide hover:text-brand-red transition-colors group">
                         Webmail
                         <span class="absolute bottom-0 left-0 w-full h-1 bg-brand-red scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                     </a>
@@ -137,9 +147,13 @@
                 <button onclick="navigateTo('about')" class="text-left text-xl font-bold uppercase text-brand-charcoal py-3 border-b border-gray-100">About</button>
                 <button onclick="navigateTo('team')" class="text-left text-xl font-bold uppercase text-brand-charcoal py-3 border-b border-gray-100">Team</button>
                 <button onclick="navigateTo('services')" class="text-left text-xl font-bold uppercase text-brand-charcoal py-3 border-b border-gray-100">Solutions</button>
+                <!-- Mobile Submenu Item -->
+                <button onclick="navigateTo('abelcrete')" class="text-left text-sm font-bold uppercase text-brand-red pl-6 py-2 border-b border-gray-100 bg-gray-50 flex items-center gap-2">
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i> Abelcrete® Wall System
+                </button>
                 <button onclick="navigateTo('projects')" class="text-left text-xl font-bold uppercase text-brand-charcoal py-3 border-b border-gray-100">Projects</button>
                 <button onclick="navigateTo('newsroom')" class="text-left text-xl font-bold uppercase text-brand-charcoal py-3 border-b border-gray-100">Newsroom</button>
-                <a href="https://abelconbuilders.com/webmail" class="text-left text-xl font-bold uppercase text-brand-charcoal py-3 border-b border-gray-100">Webmail</a>
+                <a href="#" class="text-left text-xl font-bold uppercase text-brand-charcoal py-3 border-b border-gray-100">Webmail</a>
                 
                 <button onclick="navigateTo('contact')" class="bg-brand-red text-white text-center py-4 font-bold uppercase tracking-wider mt-8">Get a Quote</button>
             </div>
@@ -159,7 +173,7 @@
                     <div class="max-w-xl">
                         <div class="flex items-center gap-3 mb-6">
                             <div class="h-[2px] w-12 bg-brand-red"></div>
-                            <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Established 2021</span>
+                            <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Established 2015</span>
                         </div>
                         
                         <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-brand-charcoal leading-[0.9] mb-8">
@@ -214,25 +228,25 @@
                     <div class="grid md:grid-cols-3 gap-6">
                         <!-- Card 1 -->
                         <div class="bg-white p-8 border-l-4 border-brand-red shadow-lg hover:-translate-y-2 transition-transform duration-300">
-                            <i data-lucide="building" class="w-10 h-10 text-brand-red mb-6"></i>
-                            <h3 class="text-xl font-bold text-brand-charcoal uppercase mb-3">General Construction</h3>
-                            <p class="text-slate-500 text-sm leading-relaxed mb-6">Mid-rise commercial buildings and residential subdivisions built to national codes.</p>
+                            <i data-lucide="pen-tool" class="w-10 h-10 text-brand-red mb-6"></i>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase mb-3">Design & Construction</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-6">End-to-end design and build services ranging from architectural planning to turnkey delivery.</p>
                             <div class="w-8 h-1 bg-brand-gray"></div>
                         </div>
 
                         <!-- Card 2 -->
                         <div class="bg-white p-8 border-l-4 border-brand-charcoal shadow-lg hover:-translate-y-2 transition-transform duration-300">
-                            <i data-lucide="droplets" class="w-10 h-10 text-brand-charcoal mb-6"></i>
-                            <h3 class="text-xl font-bold text-brand-charcoal uppercase mb-3">Waterproofing</h3>
-                            <p class="text-slate-500 text-sm leading-relaxed mb-6">Specialized membrane applications for roof decks and basement tanking.</p>
+                            <i data-lucide="layers" class="w-10 h-10 text-brand-charcoal mb-6"></i>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase mb-3">Structural Works</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-6">Expert masonry, rebar fabrication, and formwork installation for various structural types.</p>
                             <div class="w-8 h-1 bg-brand-gray"></div>
                         </div>
 
                         <!-- Card 3 -->
                         <div class="bg-white p-8 border-l-4 border-brand-red shadow-lg hover:-translate-y-2 transition-transform duration-300">
-                            <i data-lucide="hard-hat" class="w-10 h-10 text-brand-red mb-6"></i>
-                            <h3 class="text-xl font-bold text-brand-charcoal uppercase mb-3">Govt Infrastructure</h3>
-                            <p class="text-slate-500 text-sm leading-relaxed mb-6">PCAB-licensed Small B projects focusing on public works and facilities.</p>
+                            <i data-lucide="paint-bucket" class="w-10 h-10 text-brand-red mb-6"></i>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase mb-3">Specialized Finishing</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-6">Comprehensive waterproofing, painting, tile setting, and ceiling installation for mid to high-rise buildings.</p>
                             <div class="w-8 h-1 bg-brand-gray"></div>
                         </div>
                     </div>
@@ -246,67 +260,112 @@
                     Our Missions
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 h-auto md:h-[600px]">
-                    <!-- Grid Item 1 -->
-                    <div class="group relative h-80 md:h-full bg-gray-800 border-r border-b border-white/10 hover-trigger overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Mission">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 h-auto">
+                    <!-- Grid Item 1: Safety First -->
+                    <div class="group relative h-80 bg-gray-800 border-r border-b border-white/10 hover-trigger overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Safety">
                         <div class="absolute top-6 left-6 text-white z-10">
                             <span class="text-4xl font-black text-white/20">01</span>
                         </div>
                         <div class="hover-target absolute inset-0 bg-brand-red/90 flex flex-col justify-center p-8 z-20">
-                            <h3 class="text-2xl font-black text-white uppercase mb-2">Sustainable Build</h3>
-                            <p class="text-white/90 text-sm leading-relaxed">Implementing green building technologies to reduce carbon footprint in urban developments.</p>
-                            <a href="#" class="mt-6 inline-flex items-center text-white font-bold uppercase text-xs tracking-widest border-b border-white pb-1">Learn More</a>
+                            <h3 class="text-2xl font-black text-white uppercase mb-2">Safety First</h3>
+                            <p class="text-white/90 text-sm leading-relaxed">Ensuring that the safety of employees, contractors, and the general public is of paramount importance.</p>
                         </div>
                         <div class="absolute bottom-6 left-6 z-10 pointer-events-none group-hover:opacity-0 transition-opacity">
-                            <h3 class="text-white font-bold uppercase text-xl">Sustainability</h3>
+                            <h3 class="text-white font-bold uppercase text-xl">Safety First</h3>
                         </div>
                     </div>
 
-                    <!-- Grid Item 2 -->
-                    <div class="group relative h-80 md:h-full bg-gray-800 border-r border-b border-white/10 hover-trigger overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Mission">
+                    <!-- Grid Item 2: Core Values -->
+                    <div class="group relative h-80 bg-gray-800 border-r border-b border-white/10 hover-trigger overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Core Values">
                         <div class="absolute top-6 left-6 text-white z-10">
                             <span class="text-4xl font-black text-white/20">02</span>
                         </div>
                         <div class="hover-target absolute inset-0 bg-brand-red/90 flex flex-col justify-center p-8 z-20">
-                            <h3 class="text-2xl font-black text-white uppercase mb-2">Safety First</h3>
-                            <p class="text-white/90 text-sm leading-relaxed">Zero-accident vision through rigorous training and international safety standard adherence.</p>
+                            <h3 class="text-2xl font-black text-white uppercase mb-2">Core Values</h3>
+                            <p class="text-white/90 text-sm leading-relaxed">Demonstrating honesty, respect, and hard work to meet customer goals.</p>
                         </div>
                         <div class="absolute bottom-6 left-6 z-10 pointer-events-none group-hover:opacity-0 transition-opacity">
-                            <h3 class="text-white font-bold uppercase text-xl">Safety</h3>
+                            <h3 class="text-white font-bold uppercase text-xl">Core Values</h3>
                         </div>
                     </div>
 
-                    <!-- Grid Item 3 -->
-                    <div class="group relative h-80 md:h-full bg-gray-800 border-r border-b border-white/10 hover-trigger overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Mission">
+                    <!-- Grid Item 3: Innovation -->
+                    <div class="group relative h-80 bg-gray-800 border-r border-b border-white/10 hover-trigger overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Innovation">
                         <div class="absolute top-6 left-6 text-white z-10">
                             <span class="text-4xl font-black text-white/20">03</span>
                         </div>
                         <div class="hover-target absolute inset-0 bg-brand-red/90 flex flex-col justify-center p-8 z-20">
                             <h3 class="text-2xl font-black text-white uppercase mb-2">Innovation</h3>
-                            <p class="text-white/90 text-sm leading-relaxed">Adopting BIM and modern pre-cast methodologies to accelerate project timelines.</p>
+                            <p class="text-white/90 text-sm leading-relaxed">Embodying service characterized by flexibility, adaptability, and a welcome approach to innovation.</p>
                         </div>
                         <div class="absolute bottom-6 left-6 z-10 pointer-events-none group-hover:opacity-0 transition-opacity">
                             <h3 class="text-white font-bold uppercase text-xl">Innovation</h3>
                         </div>
                     </div>
 
-                    <!-- Grid Item 4 -->
-                    <div class="group relative h-80 md:h-full bg-gray-800 border-b border-white/10 hover-trigger overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Mission">
+                    <!-- Grid Item 4: Relationships -->
+                    <div class="group relative h-80 bg-gray-800 border-b border-white/10 hover-trigger overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Relationships">
                         <div class="absolute top-6 left-6 text-white z-10">
                             <span class="text-4xl font-black text-white/20">04</span>
                         </div>
                         <div class="hover-target absolute inset-0 bg-brand-red/90 flex flex-col justify-center p-8 z-20">
-                            <h3 class="text-2xl font-black text-white uppercase mb-2">Community</h3>
-                            <p class="text-white/90 text-sm leading-relaxed">Building infrastructure that fosters community growth and economic development.</p>
+                            <h3 class="text-2xl font-black text-white uppercase mb-2">Relationships</h3>
+                            <p class="text-white/90 text-sm leading-relaxed">Maintaining positive, productive relationships with customers and the industry community.</p>
                         </div>
                         <div class="absolute bottom-6 left-6 z-10 pointer-events-none group-hover:opacity-0 transition-opacity">
-                            <h3 class="text-white font-bold uppercase text-xl">Community</h3>
+                            <h3 class="text-white font-bold uppercase text-xl">Relationships</h3>
                         </div>
                     </div>
+
+                    <!-- Grid Item 5: Customer Satisfaction -->
+                    <div class="group relative h-80 bg-gray-800 border-r border-b border-white/10 hover-trigger overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556761175-4b46a891931d?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Satisfaction">
+                        <div class="absolute top-6 left-6 text-white z-10">
+                            <span class="text-4xl font-black text-white/20">05</span>
+                        </div>
+                        <div class="hover-target absolute inset-0 bg-brand-red/90 flex flex-col justify-center p-8 z-20">
+                            <h3 class="text-2xl font-black text-white uppercase mb-2">Customer Satisfaction</h3>
+                            <p class="text-white/90 text-sm leading-relaxed">Providing a guarantee of satisfaction and using feedback as a pathway to improvement.</p>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-10 pointer-events-none group-hover:opacity-0 transition-opacity">
+                            <h3 class="text-white font-bold uppercase text-xl">Satisfaction</h3>
+                        </div>
+                    </div>
+
+                    <!-- Grid Item 6: Teamwork -->
+                    <div class="group relative h-80 bg-gray-800 border-r border-b border-white/10 hover-trigger overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Teamwork">
+                        <div class="absolute top-6 left-6 text-white z-10">
+                            <span class="text-4xl font-black text-white/20">06</span>
+                        </div>
+                        <div class="hover-target absolute inset-0 bg-brand-red/90 flex flex-col justify-center p-8 z-20">
+                            <h3 class="text-2xl font-black text-white uppercase mb-2">Teamwork</h3>
+                            <p class="text-white/90 text-sm leading-relaxed">Working as a cohesive team of highly skilled people committed to ongoing learning.</p>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-10 pointer-events-none group-hover:opacity-0 transition-opacity">
+                            <h3 class="text-white font-bold uppercase text-xl">Teamwork</h3>
+                        </div>
+                    </div>
+
+                    <!-- Grid Item 7: Environment -->
+                    <div class="group relative h-80 bg-gray-800 border-b border-white/10 hover-trigger overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Environment">
+                        <div class="absolute top-6 left-6 text-white z-10">
+                            <span class="text-4xl font-black text-white/20">07</span>
+                        </div>
+                        <div class="hover-target absolute inset-0 bg-brand-red/90 flex flex-col justify-center p-8 z-20">
+                            <h3 class="text-2xl font-black text-white uppercase mb-2">Environment</h3>
+                            <p class="text-white/90 text-sm leading-relaxed">Actively demonstrating the highest respect for and care of the Earth.</p>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-10 pointer-events-none group-hover:opacity-0 transition-opacity">
+                            <h3 class="text-white font-bold uppercase text-xl">Environment</h3>
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
@@ -378,12 +437,12 @@
                             <div class="h-[2px] w-12 bg-brand-red"></div>
                             <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Corporate Profile</span>
                         </div>
-                        <h2 class="text-3xl font-black text-brand-charcoal uppercase mb-6 leading-tight">From Specialized Roots to General Construction Leadership</h2>
+                        <h2 class="text-3xl font-black text-brand-charcoal uppercase mb-6 leading-tight">Company Background</h2>
                         <p class="text-slate-600 leading-relaxed mb-6">
-                            Abelcon Builders Corporation was founded in 2021 with a clear mission: to elevate the standards of vertical construction in the Philippines. We began as a specialized team focusing on critical waterproofing and structural painting, earning a reputation for solving complex building pathology issues that others couldn't fix.
+                            ABELCON Builders Corporation was established on July 29, 2015, by Engr. Joseph Abello, initially as a single proprietorship named BBNA Construction. It transitioned into a newly established Corporation on April 29, 2021.
                         </p>
                         <p class="text-slate-600 leading-relaxed">
-                            Today, we have grown into a PCAB Category B General Contractor, trusted by major developers and government agencies alike. Our growth is fueled by a simple philosophy: <strong>We don't just build structures; we build trust through engineering integrity.</strong>
+                            Starting with small-scale jobs like painting, masonry, and civil works, the company grew to become an accredited contractor for major partners like Security Bank Corporation and Star Appliance Centre Inc. We have achieved remarkable success in renovating numerous Security Bank branches and schools donated by the Security Bank Foundation nationwide.
                         </p>
                     </div>
                     <div class="md:w-1/2 grid grid-cols-2 gap-4">
@@ -396,7 +455,7 @@
                             <span class="text-xs uppercase tracking-widest font-bold">Safety Record</span>
                         </div>
                         <div class="bg-brand-gray text-brand-charcoal p-8 flex flex-col justify-center items-center text-center clip-angle-decor">
-                            <span class="text-4xl font-black mb-2">2021</span>
+                            <span class="text-4xl font-black mb-2">2015</span>
                             <span class="text-xs uppercase tracking-widest font-bold">Established</span>
                         </div>
                         <div class="bg-brand-charcoal text-white p-8 flex flex-col justify-center items-center text-center clip-angle-decor">
@@ -404,6 +463,19 @@
                             <span class="text-xs uppercase tracking-widest font-bold">PCAB License</span>
                         </div>
                     </div>
+                </div>
+
+                <!-- Vision Section -->
+                <div class="bg-brand-charcoal text-white p-12 mb-24 relative overflow-hidden rounded-sm shadow-xl">
+                    <div class="relative z-10 text-center max-w-4xl mx-auto">
+                        <i data-lucide="eye" class="w-12 h-12 text-brand-red mx-auto mb-6"></i>
+                        <h2 class="text-3xl font-black uppercase mb-6 tracking-tight">Our Vision</h2>
+                        <p class="text-xl md:text-2xl font-light leading-relaxed text-gray-300">
+                            "ABELCON BUILDERS CORPORATION commits itself each day to the provision of a service which is ethical, honest, and diligent, gaining a reputation for excellence and integrity that will position this company as a pre-eminent contracting company in the Philippines."
+                        </p>
+                    </div>
+                    <!-- Background Pattern -->
+                    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
                 </div>
 
                 <!-- Core Values -->
@@ -414,22 +486,22 @@
                             <div class="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-6">
                                 <i data-lucide="shield-check" class="text-brand-red w-8 h-8"></i>
                             </div>
-                            <h4 class="font-bold uppercase text-lg mb-3">Integrity</h4>
-                            <p class="text-slate-500 text-sm">We adhere to the strictest building codes and ethical standards. No shortcuts, only standard materials.</p>
+                            <h4 class="font-bold uppercase text-lg mb-3">Honesty</h4>
+                            <p class="text-slate-500 text-sm">We build with transparency. From project costing to timeline reporting, we uphold absolute truthfulness in every transaction.</p>
                         </div>
                         <div class="text-center p-8 border border-gray-100 shadow-lg hover:-translate-y-2 transition-transform duration-300">
                             <div class="w-16 h-16 bg-brand-charcoal/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <i data-lucide="hard-hat" class="text-brand-charcoal w-8 h-8"></i>
+                                <i data-lucide="heart-handshake" class="text-brand-charcoal w-8 h-8"></i>
                             </div>
-                            <h4 class="font-bold uppercase text-lg mb-3">Safety</h4>
-                            <p class="text-slate-500 text-sm">Our "Zero Accident" vision drives every site operation. We protect our workforce to protect your project.</p>
+                            <h4 class="font-bold uppercase text-lg mb-3">Respect</h4>
+                            <p class="text-slate-500 text-sm">We value every individual. Whether client, contractor, or laborer, we treat everyone with dignity and foster a culture of mutual regard.</p>
                         </div>
                         <div class="text-center p-8 border border-gray-100 shadow-lg hover:-translate-y-2 transition-transform duration-300">
                             <div class="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <i data-lucide="lightbulb" class="text-brand-red w-8 h-8"></i>
+                                <i data-lucide="hammer" class="text-brand-red w-8 h-8"></i>
                             </div>
-                            <h4 class="font-bold uppercase text-lg mb-3">Innovation</h4>
-                            <p class="text-slate-500 text-sm">We embrace modern methodologies like BIM and pre-cast systems to deliver faster, stronger builds.</p>
+                            <h4 class="font-bold uppercase text-lg mb-3">Hard Work</h4>
+                            <p class="text-slate-500 text-sm">We are driven by grit. We go the extra mile, working diligently to deliver excellence and meet our commitments on time.</p>
                         </div>
                     </div>
                 </div>
@@ -448,117 +520,174 @@
                                 Official Licensing & Accreditation
                             </h3>
                             
-                            <div class="grid md:grid-cols-3 gap-8">
-                                <div class="md:col-span-2 prose prose-slate text-slate-600 leading-relaxed text-sm md:text-base">
-                                    <p class="mb-4">
-                                        At Abelcon, we wear our credentials with pride. We are fully licensed and accredited by the <strong class="text-brand-charcoal">Philippine Contractors Accreditation Board (PCAB)</strong> under License No. 52135. Operating with full clearance for the 2025–2026 cycle, our standing is a testament to our compliance with the rigorous standards set by Philippine construction laws.
-                                    </p>
-                                    <p>
-                                        Beyond our Principal Classification in <strong class="text-brand-charcoal">General Building (Category D)</strong>, we hold specialized certifications for <span class="text-brand-red font-bold">Waterproofing</span> and <span class="text-brand-red font-bold">Painting Works</span>. This allows us to deliver comprehensive solutions—from the structural skeleton to the critical finishing touches—under one accountable banner.
-                                    </p>
+                            <div class="grid md:grid-cols-2 gap-12">
+                                <!-- Column 1: PCAB Specifics -->
+                                <div>
+                                    <h4 class="font-bold text-brand-charcoal uppercase tracking-widest text-sm mb-6 border-b border-gray-200 pb-2">PCAB Credentials</h4>
+                                    <div class="space-y-6">
+                                        <div class="bg-brand-gray p-5 border-l-4 border-brand-red">
+                                            <span class="block text-[10px] font-bold uppercase text-slate-400 mb-1 tracking-widest">PCAB License No.</span>
+                                            <span class="block text-4xl font-black text-brand-charcoal tracking-tight">52135</span>
+                                        </div>
+                                        <div>
+                                            <span class="block text-xs font-bold text-slate-500 uppercase mb-1">Principal Classification</span>
+                                            <span class="block text-lg font-bold text-brand-charcoal">General Building</span>
+                                        </div>
+                                        <div>
+                                            <span class="block text-xs font-bold text-slate-500 uppercase mb-1">Other Classifications</span>
+                                            <ul class="text-sm font-medium text-slate-700 space-y-1">
+                                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-brand-red"></i> Waterproofing Work</li>
+                                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-brand-red"></i> Painting Work</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <span class="block text-xs font-bold text-slate-500 uppercase mb-1">Validity</span>
+                                            <span class="block text-base font-medium text-slate-700 flex items-center gap-2">
+                                                <i data-lucide="calendar" class="w-4 h-4 text-brand-charcoal"></i> Until February 18, 2026
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="space-y-4">
-                                    <div class="bg-brand-gray p-5 border-l-4 border-brand-charcoal">
-                                        <span class="block text-[10px] font-bold uppercase text-slate-400 mb-1 tracking-widest">PCAB License No.</span>
-                                        <span class="block text-4xl font-black text-brand-red tracking-tight">52135</span>
-                                    </div>
-                                    <div class="bg-brand-gray p-5 border-l-4 border-brand-charcoal">
-                                        <span class="block text-[10px] font-bold uppercase text-slate-400 mb-1 tracking-widest">Validity</span>
-                                        <span class="block text-lg font-bold text-brand-charcoal">Active (2025-2026)</span>
-                                    </div>
+
+                                <!-- Column 2: Gov Registrations -->
+                                <div>
+                                    <h4 class="font-bold text-brand-charcoal uppercase tracking-widest text-sm mb-6 border-b border-gray-200 pb-2">Government Registrations</h4>
+                                    <ul class="space-y-4 text-sm">
+                                        <li class="flex justify-between items-start border-b border-gray-100 pb-2">
+                                            <span class="font-bold text-brand-charcoal w-1/3">SEC Reg. No.</span>
+                                            <span class="text-slate-600 w-2/3 text-right font-mono">CS202105069<br><span class="text-[10px] text-slate-400 font-sans">Reg. April 29, 2021</span></span>
+                                        </li>
+                                        <li class="flex justify-between items-start border-b border-gray-100 pb-2">
+                                            <span class="font-bold text-brand-charcoal w-1/3">TIN</span>
+                                            <span class="text-slate-600 w-2/3 text-right font-mono">010-614-216-000</span>
+                                        </li>
+                                        <li class="flex justify-between items-start border-b border-gray-100 pb-2">
+                                            <span class="font-bold text-brand-charcoal w-1/3">PhilGEPS</span>
+                                            <span class="text-slate-600 w-2/3 text-right flex items-center justify-end gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-600"></i> Registered</span>
+                                        </li>
+                                        <li class="flex justify-between items-start border-b border-gray-100 pb-2">
+                                            <span class="font-bold text-brand-charcoal w-1/3">Mayor's Permit</span>
+                                            <span class="text-slate-600 w-2/3 text-right">Quezon City<br><span class="text-[10px] text-slate-400 font-mono">No. 21-004763</span></span>
+                                        </li>
+                                        <li class="flex justify-between items-start border-b border-gray-100 pb-2">
+                                            <span class="font-bold text-brand-charcoal w-1/3">Statutory</span>
+                                            <span class="text-slate-600 w-2/3 text-right flex items-center justify-end gap-2"><i data-lucide="shield" class="w-4 h-4 text-brand-red"></i> SSS & PhilHealth Registered</span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Partner in Nation Building -->
-                    <div class="bg-brand-charcoal text-white p-8 md:p-12 shadow-xl relative">
-                        <div class="grid md:grid-cols-2 gap-12 items-center">
-                            <div>
-                                <h3 class="text-2xl md:text-3xl font-black uppercase mb-6 text-white flex items-center gap-3">
-                                    <i data-lucide="landmark" class="text-brand-red w-8 h-8"></i>
-                                    Partner in Nation Building
-                                </h3>
-                                <p class="text-gray-300 leading-relaxed mb-6 text-sm md:text-base">
-                                    Abelcon Builders Corporation is not just a private contractor; we are a vetted partner for public progress. We have secured registration for government infrastructure projects (Reg. No. 0602-2025), a status that requires an additional layer of strict financial and technical auditing.
-                                </p>
-                                <p class="text-gray-300 leading-relaxed text-sm md:text-base">
-                                    Classified as <strong class="text-white">Small B</strong>, we are cleared to construct vital facilities that serve the Filipino people, including industrial plants, water treatment systems, and public recreational spaces. Our eligibility is valid until 2028, ensuring we are ready for the long haul.
-                                </p>
-                            </div>
-                            <div class="bg-white/5 p-8 border border-white/10 rounded-sm backdrop-blur-sm">
-                                <h4 class="text-slate-400 font-bold uppercase tracking-widest text-xs mb-6">Government Registration</h4>
-                                <div class="flex justify-between items-end border-b border-white/10 pb-4 mb-4">
-                                    <span class="text-gray-400 text-sm font-medium">Registration No.</span>
-                                    <span class="font-mono font-bold text-xl text-white">0602-2025</span>
-                                </div>
-                                <div class="flex justify-between items-end">
-                                    <span class="text-gray-400 text-sm font-medium">Size Range</span>
-                                    <span class="font-black text-2xl text-white">Small B</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Identity & Innovation Grid -->
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <!-- Corporate Identity -->
-                        <div class="bg-white p-8 border-t-4 border-brand-charcoal shadow-lg hover:shadow-xl transition-shadow duration-300">
-                            <h3 class="text-xl font-black text-brand-charcoal uppercase mb-6 flex items-center gap-3">
-                                <i data-lucide="building-2" class="w-6 h-6 text-brand-red"></i> Corporate Identity
-                            </h3>
-                            <p class="text-slate-600 mb-6 text-sm leading-relaxed">
-                                We operate with absolute transparency. Abelcon is a legally registered corporate entity with the <strong class="text-brand-charcoal">Securities and Exchange Commission (SEC)</strong> under Registration CS202105069.
-                            </p>
-                            <p class="text-slate-600 text-sm leading-relaxed">
-                                Rooted in Quezon City, our operations are fully tax-compliant, verified by the BIR as a Non-Individual Withholding Agent. When you build with us, you build with a legitimate, accountable corporation.
-                            </p>
-                        </div>
-
-                        <!-- Growth & Innovation -->
-                        <div class="bg-white p-8 border-t-4 border-brand-charcoal shadow-lg hover:shadow-xl transition-shadow duration-300">
-                            <h3 class="text-xl font-black text-brand-charcoal uppercase mb-6 flex items-center gap-3">
-                                <i data-lucide="trending-up" class="w-6 h-6 text-brand-red"></i> Growth & Innovation
-                            </h3>
-                            <p class="text-slate-600 mb-6 text-sm leading-relaxed">
-                                We are currently in a dynamic phase of expansion. Unlike stagnant firms, Abelcon is actively recruiting top-tier talent to drive our vision forward.
-                            </p>
-                            <div class="space-y-4">
-                                <div class="flex items-start gap-4 p-3 bg-brand-gray rounded-sm">
-                                    <div class="bg-white p-2 shadow-sm"><i data-lucide="users" class="w-4 h-4 text-brand-charcoal"></i></div>
-                                    <div>
-                                        <h4 class="font-bold text-brand-charcoal text-xs uppercase mb-1">Professional Staffing</h4>
-                                        <p class="text-xs text-slate-500 leading-snug">Our sites are led by licensed Civil Engineers and Surveyors.</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-4 p-3 bg-brand-gray rounded-sm">
-                                    <div class="bg-white p-2 shadow-sm"><i data-lucide="monitor" class="w-4 h-4 text-brand-charcoal"></i></div>
-                                    <div>
-                                        <h4 class="font-bold text-brand-charcoal text-xs uppercase mb-1">Modern Tech</h4>
-                                        <p class="text-xs text-slate-500 leading-snug">We invest in BIM (Building Information Modeling) capabilities, signaling precision.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Unblemished Record -->
-                    <div class="bg-brand-gray border border-gray-200 p-8 md:p-12">
-                        <h3 class="text-2xl font-black text-brand-charcoal uppercase mb-8 text-center">An Unblemished Record</h3>
+                    <!-- Management Model -->
+                    <div class="pt-8">
+                        <h3 class="text-3xl font-black text-brand-charcoal uppercase mb-12 text-center">Management Model</h3>
                         <div class="grid md:grid-cols-2 gap-8">
-                            <div class="bg-white p-8 shadow-sm border-l-4 border-green-600 relative">
-                                <div class="absolute top-4 right-4 text-green-100"><i data-lucide="shield-check" class="w-12 h-12"></i></div>
-                                <h4 class="font-bold text-lg text-brand-charcoal uppercase mb-3">Zero Blacklist History</h4>
-                                <p class="text-slate-600 text-sm leading-relaxed relative z-10">
-                                    Our reputation is built on unshakeable integrity. We take immense pride in our standing with the DPWH and PCAB, holding a spotless record completely free of <strong class="text-green-600">blacklistings</strong>—proof that we build the right way, every time.
-                                </p>
+                            <!-- Item 1 -->
+                            <div class="flex gap-6 p-6 bg-white border-l-4 border-brand-charcoal shadow-sm group hover:shadow-xl transition-all">
+                                <div class="shrink-0">
+                                    <div class="w-12 h-12 bg-brand-gray rounded-full flex items-center justify-center shadow-sm group-hover:bg-brand-red group-hover:text-white transition-colors">
+                                        <i data-lucide="scale" class="w-6 h-6"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-brand-charcoal uppercase mb-2">Values-Based Leadership</h4>
+                                    <p class="text-slate-600 text-sm leading-relaxed">We uphold fairness and honesty, delivering on our promises to earn customer loyalty and secure return business.</p>
+                                </div>
                             </div>
-                            <div class="bg-white p-8 shadow-sm border-l-4 border-green-600 relative">
-                                <div class="absolute top-4 right-4 text-green-100"><i data-lucide="check-circle" class="w-12 h-12"></i></div>
-                                <h4 class="font-bold text-lg text-brand-charcoal uppercase mb-3">Verified Integrity</h4>
-                                <p class="text-slate-600 text-sm leading-relaxed relative z-10">
-                                    We maintain perfect legal standing with no records of consumer litigation or public alerts. We are the safe, smart choice for residential and commercial developments.
-                                </p>
+                            
+                            <!-- Item 2 -->
+                            <div class="flex gap-6 p-6 bg-white border-l-4 border-brand-red shadow-sm group hover:shadow-xl transition-all">
+                                <div class="shrink-0">
+                                    <div class="w-12 h-12 bg-brand-gray rounded-full flex items-center justify-center shadow-sm group-hover:bg-brand-charcoal group-hover:text-white transition-colors">
+                                        <i data-lucide="zap" class="w-6 h-6"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-brand-charcoal uppercase mb-2">Love of Innovation</h4>
+                                    <p class="text-slate-600 text-sm leading-relaxed">We integrate professional knowledge with practical workforce skills to find dynamic solutions and achieve outstanding outcomes.</p>
+                                </div>
+                            </div>
+
+                            <!-- Item 3 -->
+                            <div class="flex gap-6 p-6 bg-white border-l-4 border-brand-red shadow-sm group hover:shadow-xl transition-all">
+                                <div class="shrink-0">
+                                    <div class="w-12 h-12 bg-brand-gray rounded-full flex items-center justify-center shadow-sm group-hover:bg-brand-charcoal group-hover:text-white transition-colors">
+                                        <i data-lucide="monitor" class="w-6 h-6"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-brand-charcoal uppercase mb-2">Technological Applications</h4>
+                                    <p class="text-slate-600 text-sm leading-relaxed">We utilize the latest specialized equipment and energy-efficient technology to stay at the forefront of the industry.</p>
+                                </div>
+                            </div>
+
+                            <!-- Item 4 -->
+                            <div class="flex gap-6 p-6 bg-white border-l-4 border-brand-charcoal shadow-sm group hover:shadow-xl transition-all">
+                                <div class="shrink-0">
+                                    <div class="w-12 h-12 bg-brand-gray rounded-full flex items-center justify-center shadow-sm group-hover:bg-brand-red group-hover:text-white transition-colors">
+                                        <i data-lucide="leaf" class="w-6 h-6"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-brand-charcoal uppercase mb-2">Environmental Considerations</h4>
+                                    <p class="text-slate-600 text-sm leading-relaxed">We maintain exemplary conservation practices on-site to ameliorate damage to the natural attributes of work sites.</p>
+                                </div>
+                            </div>
+
+                            <!-- Item 5: Team Relationships -->
+                            <div class="flex gap-6 p-6 bg-white border-l-4 border-brand-charcoal shadow-sm group hover:shadow-xl transition-all">
+                                <div class="shrink-0">
+                                    <div class="w-12 h-12 bg-brand-gray rounded-full flex items-center justify-center shadow-sm group-hover:bg-brand-red group-hover:text-white transition-colors">
+                                        <i data-lucide="users" class="w-6 h-6"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-brand-charcoal uppercase mb-2">Team Relationships</h4>
+                                    <p class="text-slate-600 text-sm leading-relaxed">We have built a skilled, experienced, and reliable workforce focused on respect for self, colleagues, and customers. Our communication is transparent and upfront, fostering open and lasting relationships between management and employees.</p>
+                                </div>
+                            </div>
+
+                            <!-- Item 6: Continuous Education -->
+                            <div class="flex gap-6 p-6 bg-white border-l-4 border-brand-red shadow-sm group hover:shadow-xl transition-all">
+                                <div class="shrink-0">
+                                    <div class="w-12 h-12 bg-brand-gray rounded-full flex items-center justify-center shadow-sm group-hover:bg-brand-charcoal group-hover:text-white transition-colors">
+                                        <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-brand-charcoal uppercase mb-2">Continuous Education and Training</h4>
+                                    <p class="text-slate-600 text-sm leading-relaxed">The company actively supports ongoing staff education. As a hands-on manager, the principal mentors the team, demonstrating outstanding skills in addressing even the most difficult operational challenges.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quality & Safety -->
+                    <div class="bg-brand-charcoal text-white overflow-hidden relative shadow-2xl mt-16">
+                        <div class="grid md:grid-cols-2">
+                            <!-- Quality -->
+                            <div class="p-12 md:p-16 border-b md:border-b-0 md:border-r border-white/10 relative group">
+                                <div class="absolute inset-0 bg-brand-red/10 group-hover:bg-brand-red/20 transition-colors duration-500"></div>
+                                <div class="relative z-10">
+                                    <div class="w-16 h-16 bg-white text-brand-charcoal rounded-full flex items-center justify-center mb-8 shadow-lg">
+                                        <i data-lucide="check-circle-2" class="w-8 h-8 text-brand-red"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-black uppercase mb-4 tracking-wide">Quality Assurance</h3>
+                                    <p class="text-gray-300 leading-relaxed">Our manpower works under stringent guidelines reinforced by sound supervisory practices and regular offsite/onsite meetings. Staff are fully licensed and competent in highly specialized skills.</p>
+                                </div>
+                            </div>
+
+                            <!-- Safety -->
+                            <div class="p-12 md:p-16 relative group">
+                                <div class="absolute inset-0 bg-white/5 group-hover:bg-white/10 transition-colors duration-500"></div>
+                                <div class="relative z-10">
+                                    <div class="w-16 h-16 bg-white text-brand-charcoal rounded-full flex items-center justify-center mb-8 shadow-lg">
+                                        <i data-lucide="hard-hat" class="w-8 h-8 text-blue-600"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-black uppercase mb-4 tracking-wide">Safety Paramount</h3>
+                                    <p class="text-gray-300 leading-relaxed">Safety is our non-negotiable priority, supported by excellent Risk Assessment processes and well-maintained equipment.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -633,87 +762,365 @@
             </div>
             
              <div class="container mx-auto px-4 py-16">
-                 <!-- Service 1: General Building -->
+                 <!-- FEATURED TEASER: Abelcrete Walling System -->
+                 <div class="bg-brand-charcoal text-white mb-24 relative overflow-hidden group shadow-2xl">
+                    <div class="grid md:grid-cols-2 gap-0">
+                        <div class="p-8 md:p-16 flex flex-col justify-center relative z-10">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="bg-brand-red text-white text-[10px] font-black px-3 py-1 uppercase tracking-widest">Featured Innovation</div>
+                            </div>
+                            <h2 class="text-3xl md:text-4xl font-black uppercase mb-6 leading-tight">Abelcrete®<br>Walling System</h2>
+                            <p class="text-gray-300 text-lg font-light leading-relaxed mb-8">
+                                Revolutionize your project timeline. Our proprietary shotcrete wall system is <span class="text-white font-bold">40% faster</span> than traditional methods while offering superior strength and fire resistance.
+                            </p>
+                            <button onclick="navigateTo('abelcrete')" class="inline-flex items-center gap-3 text-brand-red font-bold uppercase text-xs tracking-widest border-b border-brand-red pb-1 w-fit group-hover:text-white group-hover:border-white transition-colors duration-300">
+                                Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                        <div class="relative h-64 md:h-auto overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1621293954908-907159247fc8?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700" alt="Abelcrete System">
+                            <div class="absolute inset-0 bg-gradient-to-r from-brand-charcoal via-transparent to-transparent"></div>
+                        </div>
+                    </div>
+                 </div>
+
+                 <!-- Service 1: Design & Construction -->
                  <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
                      <div class="order-2 md:order-1">
-                         <h3 class="text-2xl font-black text-brand-red uppercase mb-4">General Building</h3>
-                         <p class="text-slate-600 leading-relaxed mb-6">We provide end-to-end construction services. From structural analysis to architectural finishing, our team ensures every phase meets strict quality control.</p>
+                         <h3 class="text-2xl font-black text-brand-red uppercase mb-4">Design & Construction</h3>
+                         <p class="text-slate-600 leading-relaxed mb-6">We offer end-to-end design and build services. From conceptualization to turnkey delivery, we manage the entire lifecycle of your project to ensure vision meets reality.</p>
                          <ul class="space-y-3">
-                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="check" class="text-brand-red w-5 h-5"></i> Residential & Commercial</li>
-                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="check" class="text-brand-red w-5 h-5"></i> Structural Retrofitting</li>
-                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="check" class="text-brand-red w-5 h-5"></i> Interior Fit-outs</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="pen-tool" class="text-brand-red w-5 h-5"></i> Architectural Design</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="hard-hat" class="text-brand-red w-5 h-5"></i> Structural Engineering</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="key" class="text-brand-red w-5 h-5"></i> General Contracting</li>
                          </ul>
                      </div>
                      <div class="h-80 bg-slate-200 clip-angle-decor relative order-1 md:order-2">
-                         <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Construction">
+                         <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Design & Construction">
                      </div>
                  </div>
 
-                 <!-- Service 2: Waterproofing -->
+                 <!-- Service 2: Rebars and Formworks -->
                  <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
                      <div class="h-80 bg-slate-200 clip-angle-decor relative">
-                         <img src="https://images.unsplash.com/photo-1621293954908-907159247fc8?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Waterproofing">
+                         <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Rebars and Formworks">
                      </div>
                      <div>
-                         <h3 class="text-2xl font-black text-brand-red uppercase mb-4">Specialized Waterproofing</h3>
-                         <p class="text-slate-600 leading-relaxed mb-6">Water damage is a major concern in tropical climates. Our specialized division utilizes elastomeric and cementitious systems to ensure your structure remains impenetrable.</p>
+                         <h3 class="text-2xl font-black text-brand-red uppercase mb-4">Rebars & Formworks</h3>
+                         <p class="text-slate-600 leading-relaxed mb-6">Structural steel and formwork installation form the backbone of every project. We execute with strict adherence to structural plans and safety standards.</p>
                          <ul class="space-y-3">
-                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="droplets" class="text-brand-red w-5 h-5"></i> Roof Deck Membrane Application</li>
-                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="droplets" class="text-brand-red w-5 h-5"></i> Basement Tanking</li>
-                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="droplets" class="text-brand-red w-5 h-5"></i> Toilet & Bath Sealing</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="layers" class="text-brand-red w-5 h-5"></i> Rebar Fabrication & Installation</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="layers" class="text-brand-red w-5 h-5"></i> System Formworks</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="layers" class="text-brand-red w-5 h-5"></i> Scaffolding Safety</li>
                          </ul>
                      </div>
                  </div>
 
-                 <!-- Service 3: Painting Works -->
+                 <!-- Service 3: Masonry Works -->
                  <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
                      <div class="order-2 md:order-1">
-                         <h3 class="text-2xl font-black text-brand-red uppercase mb-4">Painting Works</h3>
-                         <p class="text-slate-600 leading-relaxed mb-6">Professional interior and exterior painting services for buildings and industrial plants. We use premium coatings that resist fading, cracking, and peeling.</p>
+                         <h3 class="text-2xl font-black text-brand-red uppercase mb-4">Masonry Works</h3>
+                         <p class="text-slate-600 leading-relaxed mb-6">Expert masonry for various structures. Whether it's load-bearing walls or decorative stone features, our skilled masons ensure precision and durability.</p>
                          <ul class="space-y-3">
-                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="paint-bucket" class="text-brand-red w-5 h-5"></i> Exterior Weather-Resistant Coating</li>
-                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="paint-bucket" class="text-brand-red w-5 h-5"></i> Industrial Floor Epoxy</li>
-                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="paint-bucket" class="text-brand-red w-5 h-5"></i> Textured Finishes</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="brick-wall" class="text-brand-red w-5 h-5"></i> CHB Laying & Plastering</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="brick-wall" class="text-brand-red w-5 h-5"></i> Concrete Topping</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="brick-wall" class="text-brand-red w-5 h-5"></i> Decorative Stone</li>
                          </ul>
                      </div>
                      <div class="h-80 bg-slate-200 clip-angle-decor relative order-1 md:order-2">
+                         <img src="https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Masonry">
+                     </div>
+                 </div>
+
+                 <!-- Service 4: Ceiling Installation -->
+                 <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
+                     <div class="h-80 bg-slate-200 clip-angle-decor relative">
+                         <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Ceiling Installation">
+                     </div>
+                     <div>
+                         <h3 class="text-2xl font-black text-brand-red uppercase mb-4">Ceiling Installation</h3>
+                         <p class="text-slate-600 leading-relaxed mb-6">Handling large-scale commercial and residential projects. We install acoustic, aesthetic, and fire-rated ceiling systems designed for modern interiors.</p>
+                         <ul class="space-y-3">
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="grid" class="text-brand-red w-5 h-5"></i> Acoustic Board Systems</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="grid" class="text-brand-red w-5 h-5"></i> Gypsum & Drywall Cove</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="grid" class="text-brand-red w-5 h-5"></i> Metal Linear Ceilings</li>
+                         </ul>
+                     </div>
+                 </div>
+
+                 <!-- Service 5: Tile Setting -->
+                 <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
+                     <div class="order-2 md:order-1">
+                         <h3 class="text-2xl font-black text-brand-red uppercase mb-4">Tile Setting</h3>
+                         <p class="text-slate-600 leading-relaxed mb-6">Large-scale implementation for high-traffic areas. We guarantee level alignment and proper bonding for ceramic, porcelain, and natural stone tiles.</p>
+                         <ul class="space-y-3">
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="layout-grid" class="text-brand-red w-5 h-5"></i> Large Format Tiling</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="layout-grid" class="text-brand-red w-5 h-5"></i> Natural Stone & Granite</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="layout-grid" class="text-brand-red w-5 h-5"></i> Industrial Floor Tiling</li>
+                         </ul>
+                     </div>
+                     <div class="h-80 bg-slate-200 clip-angle-decor relative order-1 md:order-2">
+                         <img src="https://images.unsplash.com/photo-1620619767323-b95a89183081?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Tile Setting">
+                     </div>
+                 </div>
+
+                 <!-- Service 6: Painting Works -->
+                 <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
+                     <div class="h-80 bg-slate-200 clip-angle-decor relative">
                          <img src="https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Painting">
                      </div>
-                 </div>
-
-                 <!-- Service 4: Government Infrastructure -->
-                 <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
-                     <div class="h-80 bg-slate-200 clip-angle-decor relative">
-                         <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Government Project">
-                     </div>
                      <div>
-                         <h3 class="text-2xl font-black text-brand-red uppercase mb-4">Government Infrastructure</h3>
-                         <p class="text-slate-600 leading-relaxed mb-6">Registered for Small B government projects, we contribute to nation-building through the construction of public facilities, parks, and utility infrastructures.</p>
+                         <h3 class="text-2xl font-black text-brand-red uppercase mb-4">Painting Works</h3>
+                         <p class="text-slate-600 leading-relaxed mb-6">Specializing in mid to high-rise buildings. We use premium coatings that resist fading, cracking, and peeling for long-lasting protection against the elements.</p>
                          <ul class="space-y-3">
-                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="landmark" class="text-brand-red w-5 h-5"></i> Public Parks & Plazas</li>
-                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="landmark" class="text-brand-red w-5 h-5"></i> Multi-Purpose Halls</li>
-                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="landmark" class="text-brand-red w-5 h-5"></i> Drainage & Water Systems</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="paint-bucket" class="text-brand-red w-5 h-5"></i> High-Rise Exterior Painting</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="paint-bucket" class="text-brand-red w-5 h-5"></i> Textured & Special Effects</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="paint-bucket" class="text-brand-red w-5 h-5"></i> Protective Coatings</li>
                          </ul>
                      </div>
                  </div>
 
-                 <!-- Service 5: Renovation -->
+                 <!-- Service 7: Waterproofing -->
                  <div class="grid md:grid-cols-2 gap-12 items-center">
                      <div class="order-2 md:order-1">
-                         <h3 class="text-2xl font-black text-brand-red uppercase mb-4">Renovation & Fit-out</h3>
-                         <p class="text-slate-600 leading-relaxed mb-6">We breathe new life into existing structures. Whether it's a modern office fit-out or a complete structural overhaul, we manage the complexity of renovation with minimal disruption.</p>
+                         <h3 class="text-2xl font-black text-brand-red uppercase mb-4">Waterproofing Work</h3>
+                         <p class="text-slate-600 leading-relaxed mb-6">Comprehensive waterproofing solutions. Water damage is a major concern; our specialized division ensures your structure remains impenetrable.</p>
                          <ul class="space-y-3">
-                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="hammer" class="text-brand-red w-5 h-5"></i> Structural Repairs</li>
-                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="hammer" class="text-brand-red w-5 h-5"></i> Office & Retail Fit-outs</li>
-                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="hammer" class="text-brand-red w-5 h-5"></i> Building Extensions</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="droplets" class="text-brand-red w-5 h-5"></i> Roof Deck Membrane</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="droplets" class="text-brand-red w-5 h-5"></i> Basement Tanking</li>
+                             <li class="flex items-center gap-3 font-bold text-brand-charcoal"><i data-lucide="droplets" class="text-brand-red w-5 h-5"></i> Wet Area Sealing</li>
                          </ul>
                      </div>
                      <div class="h-80 bg-slate-200 clip-angle-decor relative order-1 md:order-2">
-                         <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Renovation">
+                         <img src="https://images.unsplash.com/photo-1621293954908-907159247fc8?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Waterproofing">
                      </div>
                  </div>
 
              </div>
+        </div>
+
+        <!-- ================= ABELCRETE PAGE (NEW) ================= -->
+        <div id="page-abelcrete" class="page-content hidden">
+            <!-- Hero with Red/Black theme -->
+            <div class="bg-brand-charcoal text-white py-24 relative overflow-hidden">
+                <div class="absolute inset-0 bg-pattern-lines opacity-10"></div>
+                <div class="absolute top-0 right-0 w-2/3 h-full bg-brand-red clip-chevron-right opacity-90"></div>
+                
+                <div class="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2">
+                        <div class="inline-block bg-white text-brand-charcoal px-4 py-1 text-xs font-black uppercase tracking-widest mb-4">Proprietary Technology</div>
+                        <h1 class="text-5xl md:text-7xl font-black uppercase mb-6 leading-tight">Abelcrete®<br>Walling System</h1>
+                        <p class="text-white/90 text-lg font-light max-w-lg leading-relaxed">
+                            We are the proud innovators of ABELCRETE®, a proprietary wall system designed for speed, strength, and efficiency.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center">
+                         <div class="border-8 border-white shadow-2xl rotate-3 relative bg-brand-charcoal">
+                            <!-- Placeholder for Shotcrete Image -->
+                            <img src="https://images.unsplash.com/photo-1621293954908-907159247fc8?q=80&w=600&auto=format&fit=crop" class="w-80 h-auto opacity-80" alt="Abelcrete Application">
+                            <div class="absolute bottom-4 left-4 bg-brand-red text-white text-xs font-bold px-2 py-1">PATENTED SYSTEM</div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What is Abelcrete Section -->
+            <div class="bg-white py-20">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto text-center">
+                        <h2 class="text-3xl font-black text-brand-charcoal uppercase mb-8">What is Abelcrete®?</h2>
+                        <p class="text-xl text-slate-600 leading-relaxed font-light">
+                            A wall system that sprays concrete with <span class="font-bold text-brand-red">high velocity</span> using a wet mixture composed of cement, sand, and water onto installed rebars with mesh.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advantages Section (Red/Black/Gray theme) -->
+            <div class="bg-brand-gray py-20 relative clip-angle-decor">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16">
+                        <span class="text-brand-red font-bold uppercase tracking-widest text-sm">Why Choose Abelcrete?</span>
+                        <h2 class="text-4xl font-black text-brand-charcoal uppercase mt-2">Key Advantages</h2>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Advantage 1 -->
+                        <div class="bg-white p-8 border-t-4 border-brand-red shadow-lg hover:-translate-y-2 transition-transform">
+                            <div class="w-14 h-14 bg-brand-charcoal text-white flex items-center justify-center rounded-full mb-6">
+                                <i data-lucide="zap" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase mb-3">Expedited Construction</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed">Computed to be <strong class="text-brand-red">40% faster</strong> than traditional CHB layout. Less idle time, no plastering, and no chipping required.</p>
+                        </div>
+
+                        <!-- Advantage 2 -->
+                        <div class="bg-white p-8 border-t-4 border-brand-charcoal shadow-lg hover:-translate-y-2 transition-transform">
+                            <div class="w-14 h-14 bg-brand-red text-white flex items-center justify-center rounded-full mb-6">
+                                <i data-lucide="shield-check" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase mb-3">Superb Strength</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed">Pressurized nozzle application creates high strength, low permeability, and high durability walls.</p>
+                        </div>
+
+                        <!-- Advantage 3 -->
+                        <div class="bg-white p-8 border-t-4 border-brand-red shadow-lg hover:-translate-y-2 transition-transform">
+                            <div class="w-14 h-14 bg-brand-charcoal text-white flex items-center justify-center rounded-full mb-6">
+                                <i data-lucide="flame" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase mb-3">Fire Resistant</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed">Can withstand up to <strong class="text-brand-red">4 hours</strong> of direct exposure and is not flammable up to 980°C.</p>
+                        </div>
+
+                        <!-- Advantage 4 -->
+                        <div class="bg-white p-8 border-t-4 border-brand-charcoal shadow-lg hover:-translate-y-2 transition-transform">
+                            <div class="w-14 h-14 bg-brand-red text-white flex items-center justify-center rounded-full mb-6">
+                                <i data-lucide="volume-x" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase mb-3">Excellent Sound Absorption</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed">Sound transmission class (STC) of min 42 dB / max 47 dB. Ideal for structures requiring acoustic insulation.</p>
+                        </div>
+
+                        <!-- Advantage 5 -->
+                        <div class="bg-white p-8 border-t-4 border-brand-red shadow-lg hover:-translate-y-2 transition-transform md:col-span-2">
+                            <div class="w-14 h-14 bg-brand-charcoal text-white flex items-center justify-center rounded-full mb-6">
+                                <i data-lucide="layers" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase mb-3">High Versatility & Design Flexibility</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed">Extremely adaptable for high walls, domes, and architecturally curved finished surfaces. Suitable for complex geometric designs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation Process -->
+            <div class="py-20 bg-white">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl font-black text-brand-charcoal uppercase mb-16 text-center">Installation Methodology</h2>
+                    
+                    <div class="relative">
+                        <!-- Center Line (Desktop) -->
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-brand-gray"></div>
+
+                        <!-- Step 1 -->
+                        <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative">
+                            <div class="md:w-5/12 text-right order-2 md:order-1 pr-8">
+                                <h4 class="text-2xl font-bold text-brand-red uppercase">01. Area Setup</h4>
+                                <p class="text-slate-600 mt-2">Preparation of the site for spraying application, ensuring clear access and safety zones.</p>
+                            </div>
+                            <div class="w-12 h-12 bg-brand-charcoal text-white rounded-full flex items-center justify-center font-bold z-10 border-4 border-white shadow-lg order-1 md:order-2 mb-4 md:mb-0">1</div>
+                            <div class="md:w-5/12 pl-8 order-3"></div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative">
+                            <div class="md:w-5/12 text-right order-2 md:order-1 pr-8"></div>
+                            <div class="w-12 h-12 bg-brand-charcoal text-white rounded-full flex items-center justify-center font-bold z-10 border-4 border-white shadow-lg order-1 md:order-2 mb-4 md:mb-0">2</div>
+                            <div class="md:w-5/12 pl-8 order-3">
+                                <h4 class="text-2xl font-bold text-brand-red uppercase">02. Rebar Optimization</h4>
+                                <p class="text-slate-600 mt-2">Installation of steel bars and mesh to create the structural backbone.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative">
+                            <div class="md:w-5/12 text-right order-2 md:order-1 pr-8">
+                                <h4 class="text-2xl font-bold text-brand-red uppercase">03. Scratch Coat Application</h4>
+                                <p class="text-slate-600 mt-2">Initial layer application allowed to solidify to establish a stable base for the main volume.</p>
+                            </div>
+                            <div class="w-12 h-12 bg-brand-charcoal text-white rounded-full flex items-center justify-center font-bold z-10 border-4 border-white shadow-lg order-1 md:order-2 mb-4 md:mb-0">3</div>
+                            <div class="md:w-5/12 pl-8 order-3"></div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative">
+                            <div class="md:w-5/12 text-right order-2 md:order-1 pr-8"></div>
+                            <div class="w-12 h-12 bg-brand-charcoal text-white rounded-full flex items-center justify-center font-bold z-10 border-4 border-white shadow-lg order-1 md:order-2 mb-4 md:mb-0">4</div>
+                            <div class="md:w-5/12 pl-8 order-3">
+                                <h4 class="text-2xl font-bold text-brand-red uppercase">04. Concrete Spray</h4>
+                                <p class="text-slate-600 mt-2">High-velocity application of the cement-sand-water mixture using specialized turbosol pumps.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="flex flex-col md:flex-row items-center justify-between relative">
+                            <div class="md:w-5/12 text-right order-2 md:order-1 pr-8">
+                                <h4 class="text-2xl font-bold text-brand-red uppercase">05. Finishing & Housekeeping</h4>
+                                <p class="text-slate-600 mt-2">Final surface treatment ("pakatas" or smooth finish) and comprehensive site cleanup.</p>
+                            </div>
+                            <div class="w-12 h-12 bg-brand-charcoal text-white rounded-full flex items-center justify-center font-bold z-10 border-4 border-white shadow-lg order-1 md:order-2 mb-4 md:mb-0">5</div>
+                            <div class="md:w-5/12 pl-8 order-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Innovation / Patent -->
+            <div class="bg-brand-charcoal text-white py-20">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto border-4 border-brand-red p-8 md:p-12 relative">
+                        <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-brand-charcoal px-6">
+                            <i data-lucide="award" class="w-12 h-12 text-yellow-500"></i>
+                        </div>
+                        
+                        <h2 class="text-3xl font-black uppercase text-center mb-8 mt-4">Technical Innovation</h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-12">
+                            <!-- Utility Model -->
+                            <div>
+                                <h4 class="text-brand-red font-bold uppercase tracking-widest mb-4 border-b border-gray-700 pb-2">Utility Model Patent</h4>
+                                <ul class="space-y-4 text-sm">
+                                    <li>
+                                        <span class="block text-gray-400 text-xs uppercase">Title</span>
+                                        <span class="font-bold text-lg">A Method of Shotcrete Wall Construction</span>
+                                    </li>
+                                    <li>
+                                        <span class="block text-gray-400 text-xs uppercase">Registrant</span>
+                                        <span>Joseph C. Abello / Abelcon Builders Corporation</span>
+                                    </li>
+                                    <li>
+                                        <span class="block text-gray-400 text-xs uppercase">Document No.</span>
+                                        <span class="font-mono text-yellow-500">2/2023/051805</span>
+                                    </li>
+                                    <li>
+                                        <span class="block text-gray-400 text-xs uppercase">Validity</span>
+                                        <span>Protected until December 29, 2030</span>
+                                    </li>
+                                    <li class="mt-4 text-gray-400 italic text-xs">
+                                        Registered Utility Model with the Intellectual Property Office of the Philippines (IPOPHL).
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Trademark -->
+                            <div>
+                                <h4 class="text-brand-red font-bold uppercase tracking-widest mb-4 border-b border-gray-700 pb-2">Trademark Registration</h4>
+                                <ul class="space-y-4 text-sm">
+                                    <li>
+                                        <span class="block text-gray-400 text-xs uppercase">Mark</span>
+                                        <span class="font-bold text-lg">Abelcrete Walling System</span>
+                                    </li>
+                                    <li>
+                                        <span class="block text-gray-400 text-xs uppercase">Registration Date</span>
+                                        <span>April 2024</span>
+                                    </li>
+                                    <li>
+                                        <span class="block text-gray-400 text-xs uppercase">Registration No.</span>
+                                        <span class="font-mono text-yellow-500">4/2024/00500272</span>
+                                    </li>
+                                </ul>
+                                <div class="mt-8 flex justify-center">
+                                     <!-- Badge Placeholder -->
+                                     <div class="border border-white/20 p-4 rounded text-center">
+                                        <span class="block font-black text-2xl">IPO PH</span>
+                                        <span class="text-xs uppercase tracking-widest">Registered</span>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- ================= PROJECTS PAGE (COMPLETE) ================= -->
@@ -728,58 +1135,444 @@
 
             <div class="container mx-auto px-4 py-16">
                 <!-- Filter Tabs -->
-                <div class="flex flex-wrap gap-4 mb-12">
-                    <button onclick="filterProjects('all')" class="filter-btn px-6 py-2 bg-brand-red text-white font-bold uppercase text-xs tracking-widest clip-angle-decor active" data-filter="all">All Projects</button>
-                    <button onclick="filterProjects('residential')" class="filter-btn px-6 py-2 bg-brand-gray text-brand-charcoal hover:bg-brand-charcoal hover:text-white font-bold uppercase text-xs tracking-widest transition-colors clip-angle-decor" data-filter="residential">Residential</button>
-                    <button onclick="filterProjects('commercial')" class="filter-btn px-6 py-2 bg-brand-gray text-brand-charcoal hover:bg-brand-charcoal hover:text-white font-bold uppercase text-xs tracking-widest transition-colors clip-angle-decor" data-filter="commercial">Commercial</button>
-                    <button onclick="filterProjects('industrial')" class="filter-btn px-6 py-2 bg-brand-gray text-brand-charcoal hover:bg-brand-charcoal hover:text-white font-bold uppercase text-xs tracking-widest transition-colors clip-angle-decor" data-filter="industrial">Industrial</button>
+                <div class="flex flex-col xl:flex-row gap-8 mb-12 border-b border-gray-200 pb-8">
+                    <!-- Main Status -->
+                    <div class="flex flex-wrap gap-3">
+                        <button onclick="filterProjects('all')" class="filter-btn px-6 py-3 bg-brand-red text-white font-bold uppercase text-xs tracking-widest clip-angle-decor active" data-filter="all">All Projects</button>
+                        <button onclick="filterProjects('ongoing')" class="filter-btn px-6 py-3 bg-brand-gray text-brand-charcoal hover:bg-brand-charcoal hover:text-white font-bold uppercase text-xs tracking-widest transition-colors clip-angle-decor" data-filter="ongoing">Ongoing Projects</button>
+                    </div>
+                    
+                    <!-- Vertical Divider (Desktop) -->
+                    <div class="hidden xl:block w-px bg-gray-300"></div>
+
+                    <!-- Entrusted (Completed) Categories -->
+                    <div class="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-4">
+                        <span class="text-xs font-bold text-brand-charcoal uppercase tracking-widest whitespace-nowrap bg-brand-gray px-3 py-1 rounded">Entrusted (Completed):</span>
+                        <div class="flex flex-wrap gap-3">
+                            <button onclick="filterProjects('educational')" class="filter-btn px-5 py-2 border border-gray-300 text-slate-600 hover:border-brand-red hover:text-brand-red font-bold uppercase text-[10px] tracking-widest transition-colors" data-filter="educational">Educational Facilities</button>
+                            <button onclick="filterProjects('commercial')" class="filter-btn px-5 py-2 border border-gray-300 text-slate-600 hover:border-brand-red hover:text-brand-red font-bold uppercase text-[10px] tracking-widest transition-colors" data-filter="commercial">Commercial & Infrastructure</button>
+                            <button onclick="filterProjects('residential')" class="filter-btn px-5 py-2 border border-gray-300 text-slate-600 hover:border-brand-red hover:text-brand-red font-bold uppercase text-[10px] tracking-widest transition-colors" data-filter="residential">Residential Developments</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project Item -->
-                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="residential">
+                    <!-- ================= ONGOING PROJECTS ================= -->
+                    
+                    <!-- Evo City Retail Ph2 -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="ongoing">
                         <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Project">
+                            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Construction">
                             <div class="absolute inset-0 bg-brand-red/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                <span class="text-white font-bold uppercase border-b-2 border-white pb-1 tracking-widest">View Details</span>
+                                <span class="text-white font-bold uppercase border-b-2 border-white pb-1 tracking-widest">In Progress</span>
                             </div>
+                            <div class="absolute top-4 right-4 bg-yellow-500 text-brand-charcoal text-[10px] font-black px-3 py-1 uppercase tracking-widest">Ongoing</div>
                         </div>
                         <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
-                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Residential</span>
-                            <h3 class="text-xl font-bold text-brand-charcoal uppercase">Greenheights Villa</h3>
-                            <p class="text-slate-500 text-sm mt-2">Paranaque City • Completed 2024</p>
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Ongoing Project</span>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase">Evo City Retail Ph2</h3>
+                            <p class="text-slate-500 text-sm mt-2">Civil Structural, Retaining Wall, Abelcrete, Hardscaping</p>
                         </div>
                     </div>
 
-                    <!-- Project Item -->
+                    <!-- Evo City South District -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="ongoing">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1590644365607-1c5a38a07529?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Construction">
+                            <div class="absolute inset-0 bg-brand-red/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <span class="text-white font-bold uppercase border-b-2 border-white pb-1 tracking-widest">In Progress</span>
+                            </div>
+                            <div class="absolute top-4 right-4 bg-yellow-500 text-brand-charcoal text-[10px] font-black px-3 py-1 uppercase tracking-widest">Ongoing</div>
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Ongoing Project</span>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase">Evo City South District</h3>
+                            <p class="text-slate-500 text-sm mt-2">Retaining Wall & Perimeter Fence</p>
+                        </div>
+                    </div>
+
+                    <!-- Southmont Central 1A -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="ongoing">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Construction">
+                            <div class="absolute inset-0 bg-brand-red/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <span class="text-white font-bold uppercase border-b-2 border-white pb-1 tracking-widest">In Progress</span>
+                            </div>
+                            <div class="absolute top-4 right-4 bg-yellow-500 text-brand-charcoal text-[10px] font-black px-3 py-1 uppercase tracking-widest">Ongoing</div>
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Ongoing Project</span>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase">Southmont Central 1A</h3>
+                            <p class="text-slate-500 text-sm mt-2">Detention Pond 3 Construction</p>
+                        </div>
+                    </div>
+
+                    <!-- Amaia Skies Cubao Tower 3 -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="ongoing">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Construction">
+                            <div class="absolute inset-0 bg-brand-red/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <span class="text-white font-bold uppercase border-b-2 border-white pb-1 tracking-widest">In Progress</span>
+                            </div>
+                            <div class="absolute top-4 right-4 bg-yellow-500 text-brand-charcoal text-[10px] font-black px-3 py-1 uppercase tracking-widest">Ongoing</div>
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Ongoing Project</span>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase">Amaia Skies Cubao Tower 3</h3>
+                            <p class="text-slate-500 text-sm mt-2">Civil Structural Works</p>
+                        </div>
+                    </div>
+
+                    <!-- Alveo Orean Place -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="ongoing">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Construction">
+                            <div class="absolute inset-0 bg-brand-red/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <span class="text-white font-bold uppercase border-b-2 border-white pb-1 tracking-widest">In Progress</span>
+                            </div>
+                            <div class="absolute top-4 right-4 bg-yellow-500 text-brand-charcoal text-[10px] font-black px-3 py-1 uppercase tracking-widest">Ongoing</div>
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Ongoing Project</span>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase">Alveo Orean Place</h3>
+                            <p class="text-slate-500 text-sm mt-2">Fit-out Works</p>
+                        </div>
+                    </div>
+
+                    <!-- UST Sta. Rosa Campus -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="ongoing">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Construction">
+                            <div class="absolute inset-0 bg-brand-red/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <span class="text-white font-bold uppercase border-b-2 border-white pb-1 tracking-widest">In Progress</span>
+                            </div>
+                            <div class="absolute top-4 right-4 bg-yellow-500 text-brand-charcoal text-[10px] font-black px-3 py-1 uppercase tracking-widest">Ongoing</div>
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Ongoing Project</span>
+                            <h3 class="text-xl font-bold text-brand-charcoal uppercase">UST Sta. Rosa Campus</h3>
+                            <p class="text-slate-500 text-sm mt-2">Painting Works</p>
+                        </div>
+                    </div>
+
+                    <!-- ================= EDUCATIONAL (ENTRUSTED) ================= -->
+                    
+                    <!-- Hermosa NHS -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="educational">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="School">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Educational</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">Hermosa National High School</h3>
+                            <p class="text-slate-500 text-xs mt-2">2-Storey 6 CL (Steel Structure)</p>
+                        </div>
+                    </div>
+
+                    <!-- Gapan East -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="educational">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1594608661623-aa0bd3a69d98?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="School">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Educational</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">Gapan East Integrated School</h3>
+                            <p class="text-slate-500 text-xs mt-2">2-Storey 6 CL (Steel Structure)</p>
+                        </div>
+                    </div>
+
+                    <!-- Sta. Cruz ES -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="educational">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="School">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Educational</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">Sta. Cruz Elementary School</h3>
+                            <p class="text-slate-500 text-xs mt-2">2-Storey 8 CL (Steel Structure)</p>
+                        </div>
+                    </div>
+
+                    <!-- Carmona ES -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="educational">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="School">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Educational</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">Carmona Elementary School</h3>
+                            <p class="text-slate-500 text-xs mt-2">2-Storey 10 CL (Steel Structure)</p>
+                        </div>
+                    </div>
+
+                    <!-- Bagbag NHS -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="educational">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="School">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Educational</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">Bagbag National High School</h3>
+                            <p class="text-slate-500 text-xs mt-2">2-Storey 6 CL (Steel Structure)</p>
+                        </div>
+                    </div>
+
+                    <!-- Barra ES -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="educational">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="School">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Educational</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">Barra Elementary School</h3>
+                            <p class="text-slate-500 text-xs mt-2">2-Storey 6 CL Construction</p>
+                        </div>
+                    </div>
+
+                    <!-- Tuguegarao West -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="educational">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="School">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Educational</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">Tuguegarao West Central School</h3>
+                            <p class="text-slate-500 text-xs mt-2">2-Storey 10 CL Construction</p>
+                        </div>
+                    </div>
+
+                    <!-- Sta. Rita ES -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="educational">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1629904853716-6b031451391c?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="School">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Educational</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">Sta. Rita Elementary School</h3>
+                            <p class="text-slate-500 text-xs mt-2">Educational Facility Construction</p>
+                        </div>
+                    </div>
+
+                    <!-- Various Renovations -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="educational">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1629032356526-73599a572a78?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="School">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Educational</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">Various School Renovations</h3>
+                            <p class="text-slate-500 text-xs mt-2">Security Bank Foundation Inc. (Nationwide)</p>
+                        </div>
+                    </div>
+
+                    <!-- ================= COMMERCIAL (ENTRUSTED) ================= -->
+
+                    <!-- SM Sta. Rosa 2 -->
                     <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="commercial">
                         <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1555636222-cae831e670b3?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Project">
-                             <div class="absolute inset-0 bg-brand-red/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                <span class="text-white font-bold uppercase border-b-2 border-white pb-1 tracking-widest">View Details</span>
-                            </div>
+                            <img src="https://images.unsplash.com/photo-1555636222-cae831e670b3?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Commercial">
                         </div>
                         <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
                             <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Commercial</span>
-                            <h3 class="text-xl font-bold text-brand-charcoal uppercase">Skyline Mixed-Use</h3>
-                            <p class="text-slate-500 text-sm mt-2">Quezon City • Completed 2025</p>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">SM Sta. Rosa 2 (Yulo)</h3>
+                            <p class="text-slate-500 text-xs mt-2">Civil Structural Works</p>
                         </div>
                     </div>
 
-                    <!-- Project Item -->
-                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="industrial">
+                    <!-- DPWH Joint Projects -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="commercial">
                         <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Project">
-                             <div class="absolute inset-0 bg-brand-red/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                <span class="text-white font-bold uppercase border-b-2 border-white pb-1 tracking-widest">View Details</span>
-                            </div>
+                            <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Infrastructure">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Infrastructure</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">DPWH Joint Projects (Boysen)</h3>
+                            <p class="text-slate-500 text-xs mt-2">EDSA & Roxas Flyover, C5 Elevated U-Turn</p>
+                        </div>
+                    </div>
+
+                    <!-- Hotel 101 -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="commercial">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Hotel">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Commercial</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">Hotel 101, The Fort</h3>
+                            <p class="text-slate-500 text-xs mt-2">Painting & Ceiling Works</p>
+                        </div>
+                    </div>
+
+                    <!-- Trium Square -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="commercial">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Office">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Commercial</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">Trium Square, Pasay City</h3>
+                            <p class="text-slate-500 text-xs mt-2">Ceiling, Drywall Partition, Painting Works</p>
+                        </div>
+                    </div>
+
+                    <!-- DLSU Clean Building -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="commercial">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Building">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Educational/Commercial</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">DLSU Clean Building Binan</h3>
+                            <p class="text-slate-500 text-xs mt-2">Ceiling, Drywall Partition, Painting Works</p>
+                        </div>
+                    </div>
+
+                    <!-- Eagle Cement -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="commercial">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Commercial">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Commercial</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">Eagle Cement Bldg.</h3>
+                            <p class="text-slate-500 text-xs mt-2">Mandaluyong City • Painting Works</p>
+                        </div>
+                    </div>
+
+                    <!-- RSA Building -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="commercial">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Building">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Commercial</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">RSA Building</h3>
+                            <p class="text-slate-500 text-xs mt-2">Mandaluyong City • Painting Works</p>
+                        </div>
+                    </div>
+
+                    <!-- Dasmarinas Multi-Purpose Hall -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="commercial">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Hall">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Commercial</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">Dasmarinas Multi-Purpose Hall</h3>
+                            <p class="text-slate-500 text-xs mt-2">Painting Works</p>
+                        </div>
+                    </div>
+
+                    <!-- Batangas Warehouse -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="commercial">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Warehouse">
                         </div>
                         <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
                             <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Industrial</span>
-                            <h3 class="text-xl font-bold text-brand-charcoal uppercase">Logistics Warehouse 4</h3>
-                            <p class="text-slate-500 text-sm mt-2">Bulacan • Completed 2023</p>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">Batangas Warehouse & Commercial Devt</h3>
+                            <p class="text-slate-500 text-xs mt-2">Painting Works</p>
                         </div>
                     </div>
+
+                    <!-- Alveo Park Cascade -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="commercial">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Alveo">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Commercial</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">Alveo Park Cascade</h3>
+                            <p class="text-slate-500 text-xs mt-2">Fit-out Works</p>
+                        </div>
+                    </div>
+
+                    <!-- 2-Storey Office Warehouse -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="commercial">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Office Warehouse">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Commercial</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">2-Storey Office Warehouse</h3>
+                            <p class="text-slate-500 text-xs mt-2">Design & Construction</p>
+                        </div>
+                    </div>
+
+                    <!-- Security Bank -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="commercial">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Bank">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Commercial</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">Security Bank Corporation</h3>
+                            <p class="text-slate-500 text-xs mt-2">Various Bank Branch Renovations</p>
+                        </div>
+                    </div>
+
+                    <!-- ================= RESIDENTIAL (ENTRUSTED) ================= -->
+
+                    <!-- Island Cove -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="residential">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Residential">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Residential</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">Island Cove</h3>
+                            <p class="text-slate-500 text-xs mt-2">Painting Works (Phases 1-4, Condo Premiere)</p>
+                        </div>
+                    </div>
+
+                    <!-- MJ Condo -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="residential">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Residential">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Residential</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">MJ Condo, Makati City</h3>
+                            <p class="text-slate-500 text-xs mt-2">Painting & Ceiling Works</p>
+                        </div>
+                    </div>
+
+                    <!-- Sierra Vista -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="residential">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600596542815-22b8c36ec800?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Residential">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Residential</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">Sierra Vista Residential House</h3>
+                            <p class="text-slate-500 text-xs mt-2">Design & Construction</p>
+                        </div>
+                    </div>
+
+                    <!-- El Jardin -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="residential">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Residential">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Residential</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">El Jardin Del Presidente Condo</h3>
+                            <p class="text-slate-500 text-xs mt-2">Repainting Works</p>
+                        </div>
+                    </div>
+
+                    <!-- 1210 Acacia -->
+                    <div class="project-item group relative block bg-white shadow-lg overflow-hidden" data-category="residential">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Residential">
+                        </div>
+                        <div class="p-6 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest mb-2 block">Residential</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal uppercase">1210 Acacia, Ayala Alabang</h3>
+                            <p class="text-slate-500 text-xs mt-2">Painting Works</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -1236,8 +2029,7 @@
             <div class="grid md:grid-cols-4 gap-12 mb-16">
                 <div class="col-span-1 md:col-span-2">
                     <div class="mb-6 flex items-center gap-4">
-                        <!-- Logo Updated: 50% Larger -->
-                        <img src="abelcon_portrait.jpg" 
+                        <img src="https://placehold.co/150x150/232323/A11B1F?text=ABC" 
                              alt="Abelcon Builders Corporation" 
                              class="h-24 w-auto object-contain rounded-sm">
                         <div class="flex flex-col">
@@ -1258,7 +2050,7 @@
                         <li><a href="#" onclick="navigateTo('projects')" class="hover:text-white transition-colors">Projects</a></li>
                         <li><a href="#" onclick="navigateTo('services')" class="hover:text-white transition-colors">Solutions</a></li>
                         <li><a href="#" onclick="navigateTo('newsroom')" class="hover:text-white transition-colors">Newsroom</a></li>
-                        <li><a href="https://abelconbuilders.com/webmail" class="hover:text-white transition-colors">Webmail</a></li>
+                        <li><a href="#" onclick="alert('Redirecting to Webmail...')" class="hover:text-white transition-colors">Webmail</a></li>
                     </ul>
                 </div>
                 <div>
