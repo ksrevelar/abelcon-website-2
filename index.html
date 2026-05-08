@@ -1863,26 +1863,30 @@
                         <div class="grid md:grid-cols-2 gap-6 mb-6">
                             <div>
                                 <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Name</label>
-                                <input type="text" class="w-full bg-brand-gray border-none p-3 focus:ring-2 focus:ring-brand-red transition-all" placeholder="Juan Dela Cruz">
+                                <input type="text" name="name" required class="w-full bg-brand-gray border-none p-3 focus:ring-2 focus:ring-brand-red transition-all" placeholder="Juan Dela Cruz">
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Contact No.</label>
-                                <input type="text" class="w-full bg-brand-gray border-none p-3 focus:ring-2 focus:ring-brand-red transition-all" placeholder="09XX...">
+                                <input type="text" name="contact_number" required class="w-full bg-brand-gray border-none p-3 focus:ring-2 focus:ring-brand-red transition-all" placeholder="09XX...">
                             </div>
                         </div>
                         <div class="mb-6">
+                            <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Email Address</label>
+                            <input type="email" name="email" required class="w-full bg-brand-gray border-none p-3 focus:ring-2 focus:ring-brand-red transition-all" placeholder="juan@example.com">
+                        </div>
+                        <div class="mb-6">
                             <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Project Type</label>
-                            <select class="w-full bg-brand-gray border-none p-3 focus:ring-2 focus:ring-brand-red transition-all">
-                                <option>General Construction</option>
-                                <option>Waterproofing</option>
-                                <option>Renovation</option>
+                            <select name="project_type" class="w-full bg-brand-gray border-none p-3 focus:ring-2 focus:ring-brand-red transition-all">
+                                <option value="General Construction">General Construction</option>
+                                <option value="Waterproofing">Waterproofing</option>
+                                <option value="Renovation">Renovation</option>
                             </select>
                         </div>
                         <div class="mb-8">
                             <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Message</label>
-                            <textarea rows="4" class="w-full bg-brand-gray border-none p-3 focus:ring-2 focus:ring-brand-red transition-all"></textarea>
+                            <textarea name="message" required rows="4" class="w-full bg-brand-gray border-none p-3 focus:ring-2 focus:ring-brand-red transition-all"></textarea>
                         </div>
-                        <button class="w-full bg-brand-red text-white font-bold uppercase tracking-widest py-4 hover:bg-brand-charcoal transition-colors">Submit Form</button>
+                        <button type="submit" class="w-full bg-brand-red text-white font-bold uppercase tracking-widest py-4 hover:bg-brand-charcoal transition-colors">Submit Form</button>
                     </form>
                 </div>
             </div>
@@ -2196,7 +2200,7 @@
             if (consent) consent.classList.add('hidden');
         };
         
-        // Formspree Submit Handling
+               // Formspree Submit Handling
         window.submitContactForm = async function(event) {
             event.preventDefault();
             const form = event.target;
