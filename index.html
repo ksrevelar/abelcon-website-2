@@ -1410,11 +1410,14 @@
 
                     <!-- Southmont Detention Pond -->
                     <div class="project-item group relative block bg-white shadow-xl overflow-hidden" data-category="land-dev">
-                        <div class="relative h-[300px] md:h-[450px] overflow-hidden bg-brand-gray flex items-center justify-center">
-                             <div class="text-center p-8">
-                                  <i data-lucide="image" class="w-12 h-12 text-slate-400 mx-auto mb-4 opacity-50"></i>
-                                  <p class="text-slate-500 font-bold uppercase tracking-widest text-xs">Images Coming Soon</p>
-                             </div>
+                         <div class="relative h-[300px] md:h-[450px] overflow-hidden" data-carousel-index="0" data-carousel-count="4">
+                            <div class="carousel-track flex h-full w-full transition-transform duration-500 ease-in-out">
+                                <div class="w-full h-full flex-shrink-0 relative overflow-hidden"><img src="dji_fly_20260503_214330_0148_1778053893485_photo.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="land dev"></div>
+                                <div class="w-full h-full flex-shrink-0 relative overflow-hidden"><img src="dji_fly_20260503_214326_0147_1778053893905_photo.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="land dev"></div>
+                                <div class="w-full h-full flex-shrink-0 relative overflow-hidden"><img src="dji_fly_20260503_214350_0150_1778053892592_photo.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="land dev"></div>
+                            </div>
+                            <button onclick="moveCarousel(this, -1, event)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-brand-red text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all z-20"><i data-lucide="chevron-left" class="w-6 h-6"></i></button>
+                            <button onclick="moveCarousel(this, 1, event)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-brand-red text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all z-20"><i data-lucide="chevron-right" class="w-6 h-6"></i></button>
                         </div>
                         <div class="p-8 border-b-4 border-transparent group-hover:border-brand-red transition-colors bg-white relative z-10">
                             <span class="text-sm font-bold text-brand-red uppercase tracking-widest mb-2 block">Land Development</span>
